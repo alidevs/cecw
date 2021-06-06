@@ -1,17 +1,22 @@
-var User = require("./../model/user")
+const jwt = require('jsonwebtoken')
+const User = require("./../model/user")
 
-var authenticate = (req, res, next) => {
-	var token = req.header('x-auth')
+const auth = async (req, res, next) => {
+    try {
+        const token = req.header('Authorization').replace('Bearer ', '')
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        const user = await User.findOne({ _id: decoded._id, "tokens.token": token })
 
-	User.findByToken(token).then((user) => {
-		if (!user) {
-			return Promise.reject()
-		}
+        if (!user) {
+            throw new Error("No user found.")
+        }
 
-		req.user = user
-		req.token = token
-		next()
-	}).catch((e) => res.status(401).send())
+        req.token = token
+        req.user = user
+        next()
+    } catch (e) {
+        res.status(401).send({ error: "Please authenticate." })
+    }
 }
 
-module.exports = { authenticate }
+module.exports = auth

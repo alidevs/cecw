@@ -1,6 +1,8 @@
 const mongoose = require("mongoose")
 
-mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGOD_URI || 'mongodb://localhost:27017/cecw', { useNewUrlParser: true })
-
-module.exports = { mongoose }
+mongoose.connect(process.env.MONGODB_URL, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+})

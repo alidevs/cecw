@@ -1,111 +1,97 @@
-const mongoose = require("mongoose")
-const validator = require("validator")
-const jwt = require("jsonwebtoken")
-const _ = require("lodash")
-const bcrypt = require("bcryptjs")
+const mongoose = require('mongoose')
+const validator = require('validator')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
-var UserSchema = new mongoose.Schema({
-	email: {
-		type: String,
-		required: true,
-		trim: true,
-		minlength: 1,
-		unique: true,
-		validator: {
-			validator: validator.isEmail,
-			message: '{VALUE} is not a valid email'
-		}
-	},
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        trim: true
+    },
 
-	password: {
-		type: String,
-		required: true,
-		minlength: 6
-	},
+    email: {
+        type: String,
+        unique: true,
+        required: true,
+        trim: true,
+        lowercase: true,
+        validate(value) {
+            if (!validator.isEmail(value)) {
+                throw new Error('Email is invalid')
+            }
+        }
+    },
 
-	tokens = [{
-		access: {
-			type: String,
-			required: true
-		},
-
-		token: {
-			type: String,
-			required: true
-		}
-	}]
+    password: {
+        type: String,
+        required: true,
+        minlength: 7,
+        trim: true,
+        validate(value) {
+            if (value.toLowerCase().includes('password')) {
+                throw new Error('Password cannot contain "password"')
+            }
+        }
+    },
+	
+    tokens: [{
+        token: {
+            type: String,
+            required: true
+        }
+    }],
+}, {
+    timestamps: true
 })
 
-UserSchema.methods.generateAuthToken = function () {
-	var user = this
-	var access = 'auth'
-	var token = jwt.sign({ _id: user._id.toHexString(), access }, process.env.JWT_SECRET).toString()
-	user.tokens.push({ access, token })
+userSchema.methods.toJSON = function () {
+    const user = this
+    const userObject = user.toObject()
 
-	return user.save().then(() => {
-		return token
-	})
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject
 }
 
-UserSchema.methods.removeToken = function (token) {
-	var user = this
+userSchema.methods.generateAuthToken = async function () {
+    const user = this
+    
+    const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
+    user.tokens = user.tokens.concat({ token })
+    await user.save()
 
-	return user.update({
-		$pull: {
-			tokens: { token }
-		}
-	})
+    return token
 }
 
-UserSchema.statics.findByToken = function (token) {
-	var User = this
-	var decoded
+userSchema.statics.findByCredentials = async (email, password) => {
+    console.log(`Looking for email: ${email} & password: ${password}`)
+    const user = await User.findOne({ email })
+    if (!user) {
+        throw new Error("No user found in the database")
+    }
 
-	try {
-		decoded = jwt.verify(token, process.env.JWT_SECRET)
-	} catch (e) {
-		return Promise.reject()
-	}
+    const isMatch = await bcrypt.compare(password, user.password)
 
-	return User.findOne({
-		'_id': decoded._id,
-		'tokens.token': token,
-		'tokens.access': 'auth'
-	})
+    if (!isMatch) {
+        throw new Error("Wrong email/password")
+    }
+
+    return user
 }
 
-UserSchema.statics.findByCredentials = function (email, password) {
-	var User = this
-	return User.findOne({ email }).then((user) => {
-		if (!user) {
-			return Promise.reject()
-		}
+// Hash the plain text password before saving
+userSchema.pre('save', async function (next) {
+    const user = this
 
-		return new Promise((resolve, reject) => {
-			bcrypt.compare(password, user.passwrod, (err, res) => {
-				if (res) {
-					resolve(user)
-				} else {
-					reject()
-				}
-			})
-		})
-	})
-}
+    if (user.isModified('password')) {
+        user.password = await bcrypt.hash(user.password, 8)
+    }
 
-UserSchema.pre('save', function (next) {
-	var user = this
-
-	if (user.isModified('password')) {
-		bcrypt.genSalt(10, (err, salt) => {
-			bcrypt.hash(user.password, salt, (err, res) => {
-				user.password = res
-				next()
-			})
-		})
-	} else {
-		next()
-	}
+    next()
 })
 
-module.exports = mongoose.model('User', UserSchema)
+const User = mongoose.model('User', userSchema)
+
+module.exports = User
