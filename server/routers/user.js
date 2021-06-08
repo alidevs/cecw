@@ -4,7 +4,11 @@ const auth = require("./../middleware/authenticate")
 const router = new express.Router()
 
 // POST /users
-router.post('/users', async (req, res) => {
+router.post('/users', auth, async (req, res) => {
+    if (req.user.role === "Manager") {
+        console.log(`Role = ${req.user.role}`)
+    }
+    
     const user = new User(req.body)
 
     try {
@@ -62,6 +66,10 @@ router.delete('/users/me', auth, async (req, res) => {
     } catch (e) {
         res.status(500).send()
     }
+})
+
+router.get('/test', (req, res) => {
+    res.send(req.body)
 })
 
 module.exports = router

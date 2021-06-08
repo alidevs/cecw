@@ -8,4 +8,6 @@ const app = express()
 app.use(express.json())
 app.use(userRouter)
 
+require('./util/seed')
+
 module.exports = app
