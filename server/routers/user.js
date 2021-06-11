@@ -3,10 +3,11 @@ const User = require("./../model/user")
 const auth = require("./../middleware/authenticate")
 const router = new express.Router()
 
+
 // POST /users
 router.post('/users', auth, async (req, res) => {
-    if (req.user.role === "Manager") {
-        console.log(`Role = ${req.user.role}`)
+    if (req.user.role !== "Manager") {
+        return res.status(401).send({ error: "Only managers can create accounts" })
     }
     
     const user = new User(req.body)
@@ -44,7 +45,7 @@ router.post('/users/logout', auth, async (req, res) => {
         res.status(500).send(e)
     }
 })
-
+// POST /users/logoutAll
 router.post('/users/logoutAll', auth, async (req, res) => {
     try {
         req.user.tokens = []
@@ -55,10 +56,12 @@ router.post('/users/logoutAll', auth, async (req, res) => {
     }
 })
 
+// GET /users/me
 router.get('/users/me', auth, async (req, res) => {
     res.send(req.user)
 })
 
+// DELETE /usrs/me
 router.delete('/users/me', auth, async (req, res) => {
     try {
         await req.user.remove()
@@ -68,8 +71,18 @@ router.delete('/users/me', auth, async (req, res) => {
     }
 })
 
+// GET /test
 router.get('/test', (req, res) => {
-    res.send(req.body)
+    const newMessage = {
+        name: "Ali",
+        major: "CIS"
+    }
+
+    if (true) {
+        return res.send(newMessage)
+    }
+
+    console.log(newMessage)
 })
 
 module.exports = router

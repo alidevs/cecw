@@ -67,7 +67,6 @@ userSchema.methods.generateAuthToken = async function () {
 }
 
 userSchema.statics.findByCredentials = async (email, password) => {
-    console.log(`Looking for email: ${email} & password: ${password}`)
     const user = await User.findOne({ email })
     if (!user) {
         throw new Error("No user found in the database")
