@@ -1,6 +1,6 @@
 const express = require('express')
 const _ = require('lodash')
-const Item = require('../model/item')
+const { Item, Defective } = require('../model/item')
 const Trace = require('../model/trace')
 const auth = require('../middleware/authenticate')
 const router = new express.Router()
@@ -76,7 +76,6 @@ router.delete('/item/delete/:id', auth, async (req, res) => {
 	
 		try {
 			await trace.save()
-			console.log(`Saving trace for operation Delete`)
 			res.send(item)
 		} catch (e) {
 			console.log('Error saving trace')
@@ -88,4 +87,26 @@ router.delete('/item/delete/:id', auth, async (req, res) => {
 	}
 })
 
+router.copy('/item/defective/:id', auth, async (req, res) => {
+	try {
+		const item = await Item.findOne({ _id: req.params.id })
+
+		if (!item) {
+			res.status(404).send({ error: `No item found with id ${req.params.id}` })
+		}
+
+		const defective = new Defective(item.toJSON())
+
+		defective.modifiedBy = req.user._id
+		defective.operation = 'Move'
+
+		await defective.save()
+		await item.delete()
+
+		res.status(301).send(defective)
+	} catch (e) {
+		console.error(e)
+		res.status(500).send(e)
+	}
+})
 module.exports = router

@@ -55,7 +55,6 @@ async function traceIt(next) {
 
 	try {
 		await trace.save()
-		console.log(`Saving trace for operation ${this.operation}`)
 	} catch (e) {
 		console.log('Error saving trace')
 		console.error(e)
@@ -65,5 +64,9 @@ async function traceIt(next) {
 }
 
 const Item = mongoose.model('Item', itemSchema)
+const Defective = mongoose.model('Defective', itemSchema)
 
-module.exports = Item
+module.exports = {
+	Item,
+	Defective,
+}
