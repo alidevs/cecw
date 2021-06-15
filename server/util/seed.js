@@ -71,7 +71,7 @@ const seedDatabase = async () => {
 	await new Item(firstItem).save()
 	await new Item(secondItem).save()
 	await new Item(thirdItem).save()
-	console.log("Creating 3 users ..")
+	console.log("* Database has been successfully seeded.")
 }
 
 // seedDatabase()

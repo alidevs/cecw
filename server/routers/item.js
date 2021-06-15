@@ -1,8 +1,23 @@
 const express = require('express')
+const _ = require('lodash')
 const Item = require('../model/item')
+const Trace = require('../model/trace')
 const auth = require('../middleware/authenticate')
-const { update } = require('../model/item')
 const router = new express.Router()
+
+router.get('/item/list', auth, async (req, res) => {
+	if (req.user.role === 'Employee') {
+		res.status(401).send({ error: "Employees cannot add items to the item" })
+	}
+
+	try {
+		const items = await Item.find({  })
+		res.send(items)
+	} catch (e) {
+		res.status(500).send(e)
+	}
+
+})
 
 // POST /item/add
 router.post('/item/add', auth, async (req, res) => {
@@ -11,7 +26,9 @@ router.post('/item/add', auth, async (req, res) => {
 	}
 
 	const item = new Item(req.body)
-	
+	item.modifiedBy = req.user._id
+	item.operation = 'Create'
+
 	try {
 		await item.save()
 		res.status(201).send({ item })
@@ -31,6 +48,9 @@ router.patch('/item/update/:id', auth, async (req, res) => {
 			return res.status(404).send({ error: `No item found with id ${req.params.id}` })
 		}
 
+		item.modifiedBy = req.user._id
+		item.operation = 'Modify'
+
 		updates.forEach((update) => item[update] = req.body[update])
 		await item.save()
 		res.send(item)
@@ -48,9 +68,24 @@ router.delete('/item/delete/:id', auth, async (req, res) => {
 			res.status(404).send({ error: `No item found with id ${req.params.id}` })
 		}
 
-		res.send(item)
+		const trace = new Trace({
+			user: req.user._id,
+			operation: 'Delete',
+			record: item,
+		})
+	
+		try {
+			await trace.save()
+			console.log(`Saving trace for operation Delete`)
+			res.send(item)
+		} catch (e) {
+			console.log('Error saving trace')
+			console.error(e)
+		}
 	} catch (e) {
+		console.error(e)
 		res.status(500).send(e)
 	}
 })
+
 module.exports = router

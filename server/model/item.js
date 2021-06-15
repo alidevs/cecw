@@ -1,11 +1,8 @@
 const mongoose = require('mongoose')
-const User = require('./user')
-const AutoIncrement = require('mongoose-sequence')(mongoose)
+const Trace = require('./trace')
 const FKHelper = require('./helper/foregin-key-helper')
 
 const itemSchema = new mongoose.Schema({
-	_id: Number,
-
 	name: {
 		type: String,
 		required: true,
@@ -23,7 +20,7 @@ const itemSchema = new mongoose.Schema({
 	category: {
 		type: String,
 		required: true,
-		enum: ['Electronic Devices', 'Office Supplies', 'Management Tools', 'Defectives']
+		enum: ['Electronic Devices', 'Office Supplies', 'Management Tools']
 	},
 
 	count: {
@@ -32,11 +29,7 @@ const itemSchema = new mongoose.Schema({
 		default: 0
 	},
 
-	defective: {
-		type: Boolean,
-		required: true,
-		default: false
-	},
+	// TODO: Defective schema
 
 	custodiedBy: {
 		type: mongoose.Schema.Types.ObjectId,
@@ -46,11 +39,30 @@ const itemSchema = new mongoose.Schema({
 		},
 		message: `User does not exist.`
 	}
-}, {
-	_id: false
 })
 
-itemSchema.plugin(AutoIncrement)
+itemSchema.virtual('modifiedBy')
+itemSchema.virtual('operation')
+
+itemSchema.pre('save', traceIt)
+
+async function traceIt(next) {
+	const trace = new Trace({
+		user: this.modifiedBy,
+		operation: this.operation,
+		record: this.toObject(),
+	})
+
+	try {
+		await trace.save()
+		console.log(`Saving trace for operation ${this.operation}`)
+	} catch (e) {
+		console.log('Error saving trace')
+		console.error(e)
+	}
+
+	next()
+}
 
 const Item = mongoose.model('Item', itemSchema)
 
