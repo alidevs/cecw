@@ -178,6 +178,61 @@ html {
   margin-bottom: 10rem;
 }
 
+
+/*Start of Main pages*/
+.left-side-HP{
+
+  width: 40%;
+  height: 100vh;
+  background-color: #000066;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url(images/ManagerBG.jpg) no-repeat 100% 50%;
+  background-size: cover;
+}
+
+.right-side-HP{
+  height: 100vh;
+  width: 60%;
+  background-color: #F3EFE3;
+}
+
+.right-container-HP{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoM img{
+  width: 50%;
+}
+
+.logoM{
+  text-align: center;
+  margin-top: 10rem;
+}
+.headerHP{
+  font-size: 30px;
+  margin-bottom: 670px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*End of Main pages*/
+
+
+
+
+
+
+
+
+/*Resposive stuff*/
 @media (min-width: 1630px)  {
   .signIn {
     width: 75%;
