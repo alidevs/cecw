@@ -17,7 +17,7 @@ const traceSchema = mongoose.Schema({
 
 	operation: {
 		type: String,
-		enum: ['Create', 'Modify', 'Delete', 'Move']
+		enum: ['Create', 'Modify', 'Delete', 'Move', 'Accepted', 'Denied']
 	},
 
 	record: {

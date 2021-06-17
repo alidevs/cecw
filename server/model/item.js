@@ -29,8 +29,6 @@ const itemSchema = new mongoose.Schema({
 		default: 0
 	},
 
-	// TODO: Defective schema
-
 	custodiedBy: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User',
