@@ -36,7 +36,7 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url(../images/847487551.jpg) no-repeat 50% 50%;
+    background: url(../images/Login.jpg) no-repeat 50% 50%;
     background-size: cover;
 }
 
@@ -197,8 +197,6 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url(../images/ManagerBG.jpg) no-repeat 100% 50%;
-    background-size: cover;
 }
 
 .right-side-HP {
