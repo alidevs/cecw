@@ -1,5 +1,7 @@
 const express = require('express')
 const User = require("./../model/user")
+const Trace = require('./../model/trace')
+const { Item } = require('./../model/item')
 const auth = require("./../middleware/authenticate")
 const router = new express.Router()
 
@@ -61,28 +63,25 @@ router.get('/users/me', auth, async (req, res) => {
     res.send(req.user)
 })
 
-// DELETE /usrs/me
-router.delete('/users/me', auth, async (req, res) => {
+// GET /users/:id/trace
+router.get('/users/:id/trace', auth, async (req, res) => {
     try {
-        await req.user.remove()
-        res.send(req.user)
-    } catch (e) {
-        res.status(500).send()
-    }
+		const traces = await Trace.find({ user: req.params.id })
+		res.send(traces)
+	} catch (e) {
+		res.status(500).send(e)
+	}
 })
 
-// GET /test
-router.get('/test', (req, res) => {
-    const newMessage = {
-        name: "Ali",
-        major: "CIS"
+// GET /users/:id/custody
+router.get('/users/:id/custody', auth, async (req, res) => {
+    try {
+        const custody = await Item.find({ custodiedBy: req.params.id })
+        res.send(custody)
+    } catch (e) {
+        console.error(e)
+        res.status(500).send(e)
     }
-
-    if (true) {
-        return res.send(newMessage)
-    }
-
-    console.log(newMessage)
 })
 
 module.exports = router
