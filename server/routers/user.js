@@ -23,6 +23,36 @@ router.post('/users', auth, async (req, res) => {
     }
 })
 
+// PATCH /users/:id
+router.patch('/users/:id', auth, async (req, res) => {
+    if (req.user.role === 'Employee' || req.user.role === 'Vice Manager') {
+		return res.status(401).send({ error: `(${req.user.role}) You do not have permission to make this action.` })
+	}
+
+	const updates = Object.keys(req.body)
+    const allowedUpdates = ['name', 'email', 'password', 'role']
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+
+    if (!isValidOperation) {
+        return res.status(400).send({ error: 'Invalid updates!' })
+    }
+
+    try {
+        const user = await User.findOne({ _id: req.params.id })
+
+        if (!user) {
+            res.status(404).send({ 'error': `User id ${req.params.id} does not exist.` })
+        }
+
+        updates.forEach((update) => user[update] = req.body[update])
+        await user.save()
+        res.send(user)
+    } catch (e) {
+        console.error(e)
+        res.status(400).send(e)
+    }
+})
+
 // POST /users/login
 router.post('/users/login', async (req, res) => {
     try {
