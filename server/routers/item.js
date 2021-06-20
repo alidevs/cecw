@@ -111,7 +111,7 @@ router.post('/item/request', auth, async (req, res) => {
 })
 
 // PATCH /item/request/:id
-// - Accept of deny requests (Manager & Vice Manager)
+// - Accept or deny requests (Manager & Vice Manager)
 router.patch('/item/request/:id', auth, async (req, res) => {
 	if (req.user.role === 'Employee') {
 		return res.status(401).send({ error: "Employees cannot add items to the item" })
@@ -133,9 +133,15 @@ router.patch('/item/request/:id', auth, async (req, res) => {
         }
 
 		if (req.body.status === 'Accepted') {
-			await Item.findOneAndUpdate({ _id: request.itemId }, { 
-				$set: { custodiedBy: request.requestee }
-			})
+			if (request.type === 'Request') {
+				await Item.findOneAndUpdate({ _id: request.itemId }, { 
+					$set: { custodiedBy: request.requestee }
+				})
+			} else if (request.type === 'Return') {
+				await Item.findOneAndUpdate({ _id: request.itemId }, { 
+					$set: { custodiedBy: undefined }
+				})
+			}
 		}
 		
 		request.operation = req.body.status
