@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" type="image/png"
+    href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+  <meta name="apple-mobile-web-app-title" content="CodePen">
+
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+  <link rel="mask-icon" type=""
+    href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+    color="#111" />
+
+
+  <title>CodePen - Confirmation popup modal</title>
+
+
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+  <style>
+    html,
+    body {
+      font-family: arial;
+    }
+
+    #modal-wrapper {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.2);
+      text-align: center;
+      padding-top: 30px;
+      opacity: 0;
+      transition: 0.5s ease all;
+      z-index: 99999;
+    }
+
+    #modal-wrapper.active {
+      opacity: 1;
+    }
+
+    #modal-wrapper.active #modal-confirmation {
+      margin-top: 0;
+      opacity: 1;
+    }
+
+    #modal-confirmation {
+      display: inline-block;
+      margin-top: -30px;
+      opacity: 0;
+      max-width: 400px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      background: #fff;
+      text-align: left;
+      transition: 0.5s ease all;
+    }
+
+    #modal-header {
+      position: relative;
+      background: #ff6b6b;
+      padding: 15px;
+      color: #fff;
+      text-align: left;
+    }
+
+    #modal-header h3 {
+      font-weight: 300;
+      margin: 0;
+    }
+
+    #modal-close {
+      position: absolute;
+      right: 15px;
+      top: 12px;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #bd3d3d;
+    }
+
+    #modal-close:hover {
+      color: #fff;
+    }
+
+    #modal-content {
+      padding: 30px 15px;
+    }
+
+    #modal-content p {
+      margin: 0;
+      color: #61686e;
+    }
+
+    #modal-buttons {
+      padding: 0 15px 15px 15px;
+      text-align: right;
+    }
+
+    #modal-button-no {
+      border: 2px solid #98a1a9;
+      padding: 10px 30px;
+      background: #fff;
+      color: #98a1a9;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.5s ease all;
+    }
+
+    #modal-button-no:hover {
+      background: #98a1a9;
+      color: #fff;
+    }
+
+    #modal-button-yes {
+      border: 2px solid #ff6b6b;
+      padding: 10px 50px;
+      background: #ff6b6b;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.5s ease all;
+      margin-left: 10px;
+    }
+
+    #modal-button-yes:hover {
+      border: 2px solid #ff4242;
+      background: #ff4242;
+    }
+  </style>
+
+  <script>
+    window.console = window.console || function (t) {};
+  </script>
+
+
+
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
+
+
+</head>
+
+<body translate="no">
+  <a id="test-link" href="#">Confirm</a>
+  <p id="test-text"></p>
+  <script
+    src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-8216c69d01441f36c0ea791ae2d4469f0f8ff5326f00ae2d00e4bb7d20e24edb.js">
+  </script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script id="rendered-js">
+    $('#test-link').click(function (e) {
+      e.preventDefault();
+
+      var userResult = function (result) {
+        if (result === 1) {
+          $('#test-text').text('The user confirmed!');
+        } else {
+          $('#test-text').text('The user did not confirm!');
+        }
+      };
+
+      toggleModal('Are you sure you want to delete this? This action cannot be undone.', userResult);
+    });
+
+    function toggleModal(text, callback) {
+
+      $wrapper = $('<div id="modal-wrapper"></div>').appendTo('body');
+
+      $modal = $(
+        '<div id="modal-confirmation"><div id="modal-header"><h3><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Confirm Delete</h3><span data-confirm=0 class="modal-action" id="modal-close"><i class="fa fa-times" aria-hidden="true"></i></span></div><div id="modal-content"><p>' +
+        text +
+        '</p></div><div id="modal-buttons"><button class="modal-action" data-confirm=0 id="modal-button-no">No</button><button class="modal-action" data-confirm=1 id="modal-button-yes">Yes</button></div></div>'
+        ).appendTo($wrapper);
+
+      setTimeout(function () {
+        $wrapper.addClass('active');
+      }, 100);
+
+      $wrapper.find('.modal-action').click(function () {
+        var result = $(this).data('confirm');
+        $wrapper.removeClass('active').delay(500).queue(function () {
+          $wrapper.remove();
+          callback(result);
+        });
+      });
+
+    }
+    //# sourceURL=pen.js
+  </script>
+
+
+
+</body>
+
+</html>

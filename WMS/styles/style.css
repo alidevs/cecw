@@ -366,50 +366,6 @@ html {
     border-radius: 5px;
 }
 
-
-#Gain .table_select {
-    font-family: Hacen tunisia, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    overflow: scroll;
-
-    overflow: auto;
-    text-align: center;
-}
-
-.table_select {
-    font-family: Hacen tunisia, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    overflow: scroll;
-
-    overflow: auto;
-    text-align: center;
-}
-
-#Gain .table_select td,
-#Gain .table_select th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#Gain .table_select tr:nth-child(even) {
-    background-color: #F3EFE3;
-}
-
-#Gain .table_select tr:hover {
-    background-color: rgb(201, 196, 196);
-}
-
-#Gain .table_select th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: #86847f;
-    color: black;
-}
-
-/*Table style end*/
 /*start seq on mid*/
 #Gain .seq {
 
@@ -1578,6 +1534,114 @@ html {
         margin-left: 91.666667%
     }
 }
+
+/* add/Remove items page */
+.addrevpa {
+    height: 100vh;
+    width: 100%;
+    background-color: #F3EFE3;
+}
+
+.addrevpa-container {
+    height: 100vh;
+    width: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoaddrevpa {
+    text-align: center;
+    margin-left: 7rem;
+    margin-bottom: 1rem;
+}
+
+.logoaddrevpa img {
+    width: 30%;
+}
+
+.addrevpaheader {
+    font-size: 35px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+
+
+
+.table_select {
+    font-family: Hacen tunisia, sans-serif;
+    border-collapse: collapse;
+    overflow: scroll;
+    overflow: auto;
+    text-align: center;
+    position: relative;
+    min-height: 230px;
+    min-width: 600px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+}
+
+
+
+.table_select td,
+.table_select th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table_select tr:nth-child(even) {
+    background-color: #F3EFE3;
+}
+
+.table_select tr:hover {
+    background-color: rgb(201, 196, 196);
+}
+
+.table_select th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #86847f;
+    color: black;
+}
+
+/*Table style end*/
+/*tabel*/
+/* #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+} */
+
+/*End Table*/
 
 
 /*Resposive stuff*/
