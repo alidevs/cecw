@@ -9,7 +9,7 @@ body{
   display: flex;
   justify-content: center;
   padding: 10px;
-  background: linear-gradient(135deg, #71b7e6, #F3EFE3);
+  background: #F3EFE3;
 }
 
 
@@ -119,7 +119,7 @@ form .input-box span.details{
    letter-spacing: 1px;
    cursor: pointer;
    transition: all 0.3s ease;
-   background: linear-gradient(135deg, #000066, #71b7e6);
+   background: #000066;
  }
  form .button input:hover{
   background: #2E3E5F;
@@ -184,6 +184,7 @@ tr{
 td{
     padding: 9px 5px;
 }
+
 
 
 
