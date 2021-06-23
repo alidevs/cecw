@@ -87,10 +87,6 @@ html {
     margin-bottom: 50px;
 }
 
-.signup {
-    width: 100%;
-}
-
 
 .fullName,
 .nationalId,
@@ -165,6 +161,20 @@ html {
     margin: 33px 5px 0px 5px;
     width: 181px;
     height: 38px;
+    font-size: 15px;
+}
+
+.normalBtn {
+    cursor: pointer;
+    background-color: #86847F;
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    margin: 33px 5px 0px 5px;
+    width: 181px;
+    height: 38px;
+    position: absolute;
+    right: 76%;
     font-size: 15px;
 }
 
