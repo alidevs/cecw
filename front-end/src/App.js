@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Redirect, Route, Switch, withRouter } from 'react-
 
 import Login from './pages/Login/Login'
 import Requests from './pages/Requests/Requests'
+import Employees from './pages/Employee/Employees'
 import Home from './components/Home'
 import Hello from './components/Hello'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -48,6 +49,9 @@ class App extends Component {
 					<Link to="/admin/requests">
 						Requests
 					</Link>
+					<Link to="/admin/emplyees">
+						Employees
+					</Link>
 				</div>
 					<Switch>
 						<ProtectedRoute
@@ -73,6 +77,11 @@ class App extends Component {
 							path="/admin/requests"
 							loggedIn={this.state.isLoggedIn}
 							component={Requests}
+						/>
+						<ProtectedRoute
+							path="/admin/emplyees"
+							loggedIn={this.state.isLoggedIn}
+							component={Employees}
 						/>
 					</Switch>
 				</BrowserRouter>
