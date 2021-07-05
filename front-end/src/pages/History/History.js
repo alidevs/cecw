@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Admin from './Admin'
-import Employee from './Employee'
+import Table from './Table'
+import Header from './Header'
 
-import { Redirect } from 'react-router'
-
-export default class Home extends Component {
+export default class Requests extends Component {
 	constructor() {
 		super()
 
@@ -18,7 +16,7 @@ export default class Home extends Component {
 
 	componentDidMount() {
 		const token = localStorage.getItem('token')
-		axios.get('http://localhost:3000/users/me', {
+		axios.get('http://localhost:3000/item/History', {
 			headers: {
 				Authorization: `Bearer ${token}`
 			}
@@ -47,23 +45,17 @@ export default class Home extends Component {
 			console.error(`Error: A problem has occured while fetching requests list`, error)
 		})
 	}
+
 	render() {
-		
-		console.log("hello")
-		console.log(this.state.requests)
 		if (this.state.errors !== '') {
 			return <div>{this.state.errors}</div>
 		}
-		if(this.state.requests.role === 'Employee'){
-			
 		return (
-			<Employee />
+			<div>
+				<Header />
+                <Table requests={this.state.requests} />
+
+			</div>
 		)
-		}
-		else {
-			return(
-				<Admin />
-			)
-		}
 	}
 }
