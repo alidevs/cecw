@@ -4,6 +4,7 @@ const { Item, Defective } = require('../model/item')
 const Trace = require('../model/trace')
 const Request = require('../model/request')
 const auth = require('../middleware/authenticate')
+const { request } = require('express')
 const router = new express.Router()
 
 // GET /item/list
@@ -165,6 +166,18 @@ router.get('/item/request/list', auth, async (req, res) => {
 
 	try {
 		const requests = await Request.find({ status: 'Pending' })
+		res.send(requests)
+	} catch (e) {
+		res.status(500).send(e)
+	}
+})
+router.get('/item/History', auth, async (req, res) => {
+	
+
+	try {
+		
+		const requests = await Request.find({ requestee: req.user._id })
+		
 		res.send(requests)
 	} catch (e) {
 		res.status(500).send(e)

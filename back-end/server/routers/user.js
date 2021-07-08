@@ -23,6 +23,22 @@ router.post('/users', auth, async (req, res) => {
     }
 })
 
+router.get('/users/list', auth, async (req, res) => {
+	if (req.user.role === 'Employee') {
+		return res.status(401).send({ error: "you are not authenticated" })
+	}
+
+	try {
+		const items = await User.find({  })
+		res.send(items)
+	} catch (e) {
+		res.status(500).send(e)
+	}
+
+})
+
+
+
 // PATCH /users/:id
 router.patch('/users/:id', auth, async (req, res) => {
     if (req.user.role === 'Employee' || req.user.role === 'Vice Manager') {
