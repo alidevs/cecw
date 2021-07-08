@@ -15,12 +15,25 @@ class App extends Component {
 		this.state = {
 			isLoggedIn: '',
 			user: '',
-			token: ''
+			token: '',
 		}
 
 		this.handleLogin = this.handleLogin.bind(this)
 	}
 	
+	componentDidMount() {
+		const user = localStorage.getItem('user')
+		const token = localStorage.getItem('token')
+
+		if (localStorage.length !== 0) {
+			this.setState({
+				isLoggedIn: 'LOGGED_IN',
+				user: JSON.parse(user),
+				token: token
+			})
+		}
+	}
+
 	handleLogin(data) {
 		console.log(`[App] Got back to login with data:`, data)
 		this.setState({

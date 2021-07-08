@@ -1,9 +1,10 @@
 import { Redirect, Route } from 'react-router'
 
 const ProtectedRoute = ({component: Comp, loggedIn, path, ...rest}) => {
+	console.log('Logged In: ', loggedIn)
 	return (
 		<Route
-		path={path}
+		exact path={path}
 		{...rest}
 		render={(props) => {
 				return loggedIn ? (
