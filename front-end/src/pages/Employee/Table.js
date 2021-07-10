@@ -24,7 +24,7 @@ export default class Table extends Component {
 								<tr>
 									<td>{request._id}</td>
 									<td>{request.name}</td>
-									<td>{request.email}</td>
+									<td>1</td>
 									<td>{request.email}</td>
 									<td>{request.role}</td>
 									<td>{request.requestee}</td>

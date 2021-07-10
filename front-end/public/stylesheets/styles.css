@@ -9,7 +9,7 @@
 }
 
 html {
-    font-family: 'Cairo', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Hacen tunisia, "Helvetica Neue", Hacen tunisia, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 10px;
 }
 
@@ -17,7 +17,7 @@ html {
 .register {
 
     width: 100%;
-    height: 100vh;
+    height: 94vh;
 }
 
 .container {
@@ -36,8 +36,7 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background: url(../images/Login.jpg) no-repeat 50% 50%; */
-    background: url("./../images/Login.jpg") no-repeat 50% 50%;
+    background: url(../images/Login.jpg) no-repeat 50% 50%;
     background-size: cover;
 }
 
@@ -203,7 +202,7 @@ html {
 .left-side-HP {
 
     width: 40%;
-    height: 100vh;
+    height: 94vh;
     background-color: #000066;
     display: flex;
     flex-direction: column;
@@ -211,13 +210,13 @@ html {
 }
 
 .right-side-HP {
-    height: 100vh;
+    height: 94vh;
     width: 60%;
     background-color: #F3EFE3;
 }
 
 .right-container-HP {
-    height: 100vh;
+    height: 94vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1622,6 +1621,177 @@ html {
     color: black;
 }
 
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}
+
+.leftnavbar {
+    position: absolute;
+    left: 10%;
+
+
+}
+
+.navbar {
+    background-color: #F3EFE3;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    border-bottom: solid 3px grey;
+    font-family: Hacen tunisia, sans-serif;
+    font-size: 15px;
+    padding-right: 7rem;
+}
+
+.navbar>.container,
+.navbar>.container-fluid {
+    /* display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between */
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    -ms-flex-pack: justify;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap
+}
+
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 1rem
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #2E3E5F;
+    padding-right: 0;
+    padding-left: 0
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #fbc531;
+    padding-right: 0;
+    padding-left: 0
+}
+
+.navbar .navbar-nav .active>.nav-link {
+    color: #fbc531;
+}
+
+.navbar-collapse {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+.navbar-expand-lg .navbar-nav {
+    -ms-flex-direction: row;
+    flex-direction: row
+}
+
+
+.navbar-expand-lg .navbar-collapse {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto
+}
+
+li a,
+.fa {
+    display: inline-block;
+    text-align: center;
+
+    text-decoration: none;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+iframe {
+    border: none !important;
+}
+
+
 /*Table style end*/
 /*tabel*/
 /* #customers {
@@ -1676,8 +1846,7 @@ html {
 @media (min-width: 1850px) {
     .left-side {
 
-        /* background: url(/images/847487551.jpg) no-repeat 60% 50%; */
-        background: url(./../images/Login.jpg) no-repeat 60% 50%;
+        background: url(../images/847487551.jpg) no-repeat 60% 50%;
 
     }
 }
