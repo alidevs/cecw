@@ -6,6 +6,7 @@ import Login from './pages/Login/Login'
 import Requests from './pages/Requests/Requests'
 import Employees from './pages/Employee/Employees'
 import History from './pages/History/History'
+import MyCustody from './pages/myCustody/MyCustody'
 import Home from './components/Home'
 import Hello from './components/Hello'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -69,6 +70,9 @@ class App extends Component {
 					<Link to="/history">
 						History
 					</Link>
+					<Link to="/mycustody">
+						myCustody
+					</Link>
 				</div>
 					<Switch>
 						<ProtectedRoute
@@ -104,6 +108,11 @@ class App extends Component {
 							path="/History"
 							loggedIn={this.state.isLoggedIn}
 							component={History}
+						/>
+						<ProtectedRoute
+							path="/mycustody"
+							loggedIn={this.state.isLoggedIn}
+							component={MyCustody}
 						/>
 					</Switch>
 				</BrowserRouter>

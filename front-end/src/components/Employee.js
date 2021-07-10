@@ -60,7 +60,7 @@ export default class Employee extends Component {
 							</Link>
 						  </div>
 						  <div onclick="location.href=''" className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-						  <Link to="">
+						  <Link to="/mycustody">
 
 							<div style={{textAlign: 'center'}} className="each-icon box-2">
 							  <div className="icon-wrap">

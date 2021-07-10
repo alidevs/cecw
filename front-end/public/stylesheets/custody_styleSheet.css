@@ -26,8 +26,7 @@ span{
 .table{
     position: relative;
     display: grid;
-    min-hight: 530px;
-    min-height: 500px;
+    min-height: 200px;
     min-width: 600px;
     background: #fff;
     padding: 20px;
