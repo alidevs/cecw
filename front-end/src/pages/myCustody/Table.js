@@ -10,11 +10,11 @@ export default class Table extends Component {
 					<table>
 						<thead>
 							<tr>
-                            <td>ID</td>
-                        <td>Name</td>
-                        <td>Number of Custody Items</td>
-                        <td>Email</td>
-                        <td>position</td>
+                            <td>Item</td>
+                        <td>Category</td>
+                        <td>Quantity</td>
+                        <td>Item ID</td>
+                        
                         
 							</tr>
 						</thead>
@@ -22,12 +22,11 @@ export default class Table extends Component {
 						<tbody>
 							{this.props.requests.map((request, index) => (
 								<tr>
-									<td>{request._id}</td>
-									<td>{request.name}</td>
-									<td>1</td>
-									<td>{request.email}</td>
-									<td>{request.role}</td>
-									<td>{request.requestee}</td>
+									<td>{request.record.description}</td>
+									<td>{request.record.category}</td>
+									<td>{request.record.quantity}</td>
+									<td>{request.record._id}</td>
+									
 								</tr>
 							))}
 						

@@ -16,7 +16,7 @@ const requestSchema = mongoose.Schema({
 		ref: 'Item',
 		message: `Item does not exist.`
 	},
-	
+
 	quantity: {
 		type: Number,
 		default: 1
