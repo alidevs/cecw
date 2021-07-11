@@ -37,8 +37,6 @@ router.get('/users/list', auth, async (req, res) => {
 
 })
 
-
-
 // PATCH /users/:id
 router.patch('/users/:id', auth, async (req, res) => {
     if (req.user.role === 'Employee' || req.user.role === 'Vice Manager') {
@@ -65,6 +63,21 @@ router.patch('/users/:id', auth, async (req, res) => {
         res.send(user)
     } catch (e) {
         console.error(e)
+        res.status(400).send(e)
+    }
+})
+
+// DELETE /users/:id
+router.delete('/users/:id', auth, async (req, res) => {
+    if (req.user.role !== "Manager") {
+        return res.status(401).send({ error: "Only managers can create accounts" })
+    }
+    
+    try {
+        const user = await User.findByIdAndDelete(req.params.id)
+        if (!user) return res.status(404).send()
+        return res.send(user)
+    } catch (e) {
         res.status(400).send(e)
     }
 })

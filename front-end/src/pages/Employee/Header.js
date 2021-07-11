@@ -13,10 +13,10 @@ export default class Header extends Component {
 				</div>
 				<div className="title"><span>جميع الموظفين</span></div>
 
-                <div class="card">
+                <div className="card">
             <div> <Link to="/admin/requests">لوحة تحكم المستخدمين</Link></div>
-            <div class="iconbox"> 
-                <img src="https://img.icons8.com/ios/50/000000/edit-administrator.png"/>
+            <div className="iconbox"> 
+                <img src="https://img.icons8.com/ios/50/000000/edit-administrator.png" alt="" />
                 
               
             

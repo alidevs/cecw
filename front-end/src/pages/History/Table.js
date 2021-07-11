@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export default class Table extends Component {
 
 	render() {
-		console.log(5)
 		return (
 			<div>
 				<div className="table">

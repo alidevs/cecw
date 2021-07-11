@@ -8,7 +8,6 @@ export default class Form extends Component {
 		this.state = {
 			email: '',
 			password: '',
-			loginErrors: ''
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,24 +21,28 @@ export default class Form extends Component {
 	}
 
 	handleSubmit(event) {
+		event.preventDefault()
 		const { email, password } = this.state
 
 		console.log(`Email: ${email}\t\tPassword: ${password}`)
-		
-		axios.post('http://localhost:3000/users/login', { email, password })
-		.then(response => {
-			console.log(`Got a response! ${response.status}`)
+
+		axios({
+			method: 'POST',
+			url: 'http://localhost:3000/users/login',
+			data: this.state
+		})
+		.then((response) => {
 			if (response.status === 200) {
 				this.props.handleSuccessfulAuth(response.data)
-				console.log('Logged in successfully!')
 			} else {
 				console.error(`Response status ${response.status}`)
 			}
+			
+			console.log(response)
 		})
 		.catch(error => {
-			console.error(error)
+			console.error('Error -> ', error)
 		})
-		event.preventDefault()
 	}
 
 	render() {

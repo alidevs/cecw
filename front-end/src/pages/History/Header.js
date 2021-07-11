@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react'
-import {Link } from "react-router-dom";
 
 export default class Header extends Component {
 	render() {
@@ -12,10 +11,6 @@ export default class Header extends Component {
 					<img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="" />
 				</div>
 				<div className="title"><span>تاريخ</span></div>
-
-                
-      
-
 			</div>
 		)
 	}

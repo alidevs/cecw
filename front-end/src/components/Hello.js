@@ -3,8 +3,6 @@ import axios from 'axios'
 import Admin from './Admin'
 import Employee from './Employee'
 
-import { Redirect } from 'react-router'
-
 export default class Home extends Component {
 	constructor() {
 		super()
@@ -29,7 +27,6 @@ export default class Home extends Component {
 					this.setState({
 						requests: response.data
 					})
-					console.table(response.data)
 					break
 				
 				case 401:
@@ -48,9 +45,6 @@ export default class Home extends Component {
 		})
 	}
 	render() {
-		
-		console.log("hello")
-		console.log(this.state.requests)
 		if (this.state.errors !== '') {
 			return <div>{this.state.errors}</div>
 		}
