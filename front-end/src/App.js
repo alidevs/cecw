@@ -9,7 +9,7 @@ import History from './pages/History/History'
 import UserManagement from './pages/User Management/UserManagement'
 import MyCustody from './pages/myCustody/MyCustody'
 import Home from './components/Home'
-import Hello from './components/Hello'
+
 import ProtectedRoute from './components/ProtectedRoute'
 
 class App extends Component {
@@ -57,8 +57,8 @@ handleLogin(data) {
 					<Link to="/login">
 						Login
 					</Link>&nbsp;
-					<Link to="/hello">
-						Hello
+					<Link to="/">
+						Home
 					</Link>&nbsp;
 					<Link to="/admin/requests">
 						Requests
@@ -89,12 +89,12 @@ handleLogin(data) {
 								isLoggedIn={this.state.isLoggedIn}
 							/>
 						</Route>
-
+{/* 
 						<ProtectedRoute
-							path="/hello"
+							path="/"
 							loggedIn={this.state.isLoggedIn}
 							component={Hello}
-						/>
+						/> */}
 
 						<ProtectedRoute
 							path="/admin/requests"

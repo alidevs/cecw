@@ -17,7 +17,7 @@ export default class Login extends Component {
 
 	render() {
 		if (this.props.isLoggedIn === 'LOGGED_IN') {
-			return <Redirect to='/hello' />
+			return <Redirect to='/' />
 			// return this.props.history.replace('/whale')
 		}
 
