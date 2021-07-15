@@ -170,11 +170,11 @@ html {
     color: #000;
     border: none;
     border-radius: 20px;
-    margin: 33px 5px 0px 5px;
+    margin: 33px 5px 0px 34px;
     width: 181px;
     height: 38px;
-    position: absolute;
-    right: 76%;
+    /* position: absolute;
+    right: 76%; */
     font-size: 15px;
 }
 
@@ -1585,7 +1585,7 @@ html {
     overflow: scroll;
     overflow: auto;
     text-align: center;
-    position: relative;
+    /* position: relative; */
     min-height: 230px;
     min-width: 600px;
     background: #fff;
