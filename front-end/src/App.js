@@ -8,6 +8,7 @@ import Employees from './pages/Employee/Employees'
 import History from './pages/History/History'
 import UserManagement from './pages/User Management/UserManagement'
 import MyCustody from './pages/myCustody/MyCustody'
+import NewReq from './pages/NewRequests/NewRequests'
 import Home from './components/Home'
 
 import ProtectedRoute from './components/ProtectedRoute'
@@ -74,6 +75,9 @@ handleLogin(data) {
 					</Link>&nbsp;
 					<Link to="/mycustody">
 						myCustody
+					</Link>&nbsp;
+					<Link to="/newrequest">
+						new request
 					</Link>
 				</div>
 					<Switch>
@@ -121,6 +125,11 @@ handleLogin(data) {
 							path="/mycustody"
 							loggedIn={this.state.isLoggedIn}
 							component={MyCustody}
+						/>
+						<ProtectedRoute
+							path="/newrequest"
+							loggedIn={this.state.isLoggedIn}
+							component={NewReq}
 						/>
 					</Switch>
 				</BrowserRouter>

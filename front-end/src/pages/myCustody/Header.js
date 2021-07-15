@@ -12,7 +12,7 @@ export default class Header extends Component {
 					<img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="" />
 				</div>
 				<div className="title"><span>طلبات العهد الخاصة بي</span></div>
-                <Link to="/admin/requests">
+                <Link to="/newrequest">
 
                 <div class="card">
                 <div>طلب عهدة / اعادة عهدة</div>
