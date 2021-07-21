@@ -18,7 +18,6 @@ export default class Login extends Component {
 	render() {
 		if (this.props.isLoggedIn === 'LOGGED_IN') {
 			return <Redirect to='/hello' />
-			// return this.props.history.replace('/whale')
 		}
 
 		return (
@@ -34,7 +33,7 @@ export default class Login extends Component {
 									<img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="" />
 								</div>
 								<div className="header">
-									<p>نظام تخزين الودائع</p>
+									<p>نظام إدارة العهد والمخزون</p>
 								</div>
 								<Form handleSuccessfulAuth={this.handleSuccessfulAuth} />
 							</div>

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react'
 import {Link } from "react-router-dom";
 
@@ -27,7 +28,7 @@ export default class ViceManager extends Component {
             <div className="register">
               <div className="container">
                 <div className="left-side-HP"  style={{background: 'url(./images/ManagerBG.jpg) no-repeat 100% 50%', backgroundSize: 'cover'}}>
-                  {/* <div class="img">
+                  {/* <div className="img">
         
             </div> */}
                 </div>
@@ -56,7 +57,7 @@ export default class ViceManager extends Component {
                                 <h3>Check Employees Custody Requests...des</h3>
                                 <p>Check Employees Custody Requests...des</p>
                                 <div className="cta">
-                                  <a title="Click to go to..." href><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                                  <a title="Click to go to..." href="javascript:void(0);"><i className="fa fa-arrow-right" aria-hidden="true" /></a>
                                 </div>
                               </div>
                             </div>
@@ -73,7 +74,7 @@ export default class ViceManager extends Component {
                                 <h3>Items Menu...des</h3>
                                 <p>Items Menu...des</p>
                                 <div className="cta">
-                                  <a title="Click to go to..." href><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                                  <a title="Click to go to..." href="javascript:void(0);"><i className="fa fa-arrow-right" aria-hidden="true" /></a>
                                 </div>
                               </div>
                             </div>
@@ -90,7 +91,7 @@ export default class ViceManager extends Component {
                                 <h3>Custody History...des</h3>
                                 <p>Custody History...des</p>
                                 <div className="cta">
-                                  <a title="Click to go to..." href><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                                  <a title="Click to go to..." href="javascript:void(0);"><i className="fa fa-arrow-right" aria-hidden="true" /></a>
                                 </div>
                               </div>
                             </div>
@@ -107,7 +108,7 @@ export default class ViceManager extends Component {
                                 <h3>Request/Return Custody Items...des</h3>
                                 <p>Request/Return Custody Items...des</p>
                                 <div className="cta">
-                                  <a title="Click to go to..." href><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                                  <a title="Click to go to..." href="javascript:void(0);"><i className="fa fa-arrow-right" aria-hidden="true" /></a>
                                 </div>
                               </div>
                             </div>
@@ -124,7 +125,7 @@ export default class ViceManager extends Component {
                                 <h3>My Custody Items...des</h3>
                                 <p>My Custody Items...des</p>
                                 <div className="cta">
-                                  <a title="Click to go to..." href><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                                  <a title="Click to go to..." href="javascript:void(0);"><i className="fa fa-arrow-right" aria-hidden="true" /></a>
                                 </div>
                               </div>
                             </div>

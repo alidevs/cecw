@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // eslint-disable-next-line
 import { BrowserRouter, Link, Redirect, Route, Switch, withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import Login from './pages/Login/Login'
 import Requests from './pages/Requests/Requests'
@@ -11,8 +12,15 @@ import MyCustody from './pages/myCustody/MyCustody'
 import Home from './components/Home'
 import Hello from './components/Hello'
 import ProtectedRoute from './components/ProtectedRoute'
+import NavBar from './components/NavBar'
 
 class App extends Component {
+	static propTypes = {
+		match: PropTypes.object.isRequired,
+		location: PropTypes.object.isRequired,
+		history: PropTypes.object.isRequired
+	}
+
 	constructor() {
 		super()
 
@@ -23,6 +31,19 @@ class App extends Component {
 		}
 
 		this.handleLogin = this.handleLogin.bind(this)
+		this.resetState = this.resetState.bind(this)
+	}
+
+	resetState() {
+		localStorage.clear()
+
+		this.setState({
+			isLoggedIn: '',
+			user: '',
+			token: '',
+		})
+
+		console.log('State has been reset & localStorage has been cleared.')
 	}
 	
 	componentDidMount() {
@@ -38,18 +59,20 @@ class App extends Component {
 		}
 	}
 
-handleLogin(data) {
-	this.setState({
-		isLoggedIn: 'LOGGED_IN',
-		user: data.user,
-		token: data.token
-	})
+	handleLogin(data) {
+		this.setState({
+			isLoggedIn: 'LOGGED_IN',
+			user: data.user,
+			token: data.token
+		})
 
-	localStorage.setItem('user', JSON.stringify(data.user))
-	localStorage.setItem('token', data.token)
-}
+		localStorage.setItem('user', JSON.stringify(data.user))
+		localStorage.setItem('token', data.token)
+	}
 
 	render() {
+		const { history } = this.props
+		
 		return (
 			<div>
 				<BrowserRouter>
@@ -76,6 +99,11 @@ handleLogin(data) {
 						myCustody
 					</Link>
 				</div>
+				<NavBar
+					username={this.state.user.name}
+					resetState={this.resetState}
+					history={history}
+				/>
 					<Switch>
 						<ProtectedRoute
 							exact path="/"
@@ -87,6 +115,7 @@ handleLogin(data) {
 							<Login
 								handleLogin={this.handleLogin}
 								isLoggedIn={this.state.isLoggedIn}
+								history={history}
 							/>
 						</Route>
 

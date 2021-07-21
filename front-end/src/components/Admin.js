@@ -53,7 +53,7 @@ export default class Admin extends Component {
                             <h3>Check Employees Custody Requests...des</h3>
                             <p>Check Employees Custody Requests...des</p>
                             <div className="cta">
-                              <a title="Click to go to..." href><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                              <a title="Click to go to..." href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
                             </div>
                           </div>
                         </div>
@@ -71,7 +71,7 @@ export default class Admin extends Component {
                             <h3>Items Menu...des</h3>
                             <p>Items Menu...des</p>
                             <div className="cta">
-                              <a title="Click to go to..." href><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                              <a title="Click to go to..." href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
                             </div>
                           </div>
                         </div>
@@ -89,7 +89,7 @@ export default class Admin extends Component {
                             <h3>Custody History...des</h3>
                             <p>Custody History...des</p>
                             <div className="cta">
-                              <a title="Click to go to..." href><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                              <a title="Click to go to..." href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
                             </div>
                           </div>
                         </div>
@@ -107,7 +107,7 @@ export default class Admin extends Component {
                             <h3>Account Management...des</h3>
                             <p>Account Management...des</p>
                             <div className="cta">
-                              <a title="Click to go to..." href><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                              <a title="Click to go to..." href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
                             </div>
                           </div>
                         </div>
@@ -125,7 +125,7 @@ export default class Admin extends Component {
                             <h3>My Custody Items...des</h3>
                             <p>My Custody Items...des</p>
                             <div className="cta">
-                              <a title="Click to go to..." href><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                              <a title="Click to go to..." href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
                             </div>
                           </div>
                         </div>

@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 import React, { Component } from 'react'
 import {Link } from "react-router-dom";
 
@@ -14,9 +14,9 @@ export default class Header extends Component {
 				<div className="title"><span>طلبات العهد الخاصة بي</span></div>
                 <Link to="/admin/requests">
 
-                <div class="card">
+                <div className="card">
                 <div>طلب عهدة / اعادة عهدة</div>
-            <div class="iconbox"> 
+            <div className="iconbox"> 
                 <img src="https://img.icons8.com/ios/50/000000/edit-administrator.png"/>
                 
               

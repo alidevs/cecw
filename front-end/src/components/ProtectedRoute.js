@@ -1,7 +1,6 @@
 import { Redirect, Route } from 'react-router'
 
 const ProtectedRoute = ({component: Comp, loggedIn, path, ...rest}) => {
-	console.log('Logged In: ', loggedIn)
 	return (
 		<Route
 		exact path={path}
