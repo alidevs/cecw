@@ -9,8 +9,9 @@ import Employees from './pages/Employee/Employees'
 import History from './pages/History/History'
 import UserManagement from './pages/User Management/UserManagement'
 import MyCustody from './pages/myCustody/MyCustody'
+import NewReq from './pages/NewRequests/NewRequests'
 import Home from './components/Home'
-import Hello from './components/Hello'
+
 import ProtectedRoute from './components/ProtectedRoute'
 import NavBar from './components/NavBar'
 
@@ -80,8 +81,8 @@ class App extends Component {
 					<Link to="/login">
 						Login
 					</Link>&nbsp;
-					<Link to="/hello">
-						Hello
+					<Link to="/">
+						Home
 					</Link>&nbsp;
 					<Link to="/admin/requests">
 						Requests
@@ -97,6 +98,9 @@ class App extends Component {
 					</Link>&nbsp;
 					<Link to="/mycustody">
 						myCustody
+					</Link>&nbsp;
+					<Link to="/newrequest">
+						new request
 					</Link>
 				</div>
 				<NavBar
@@ -118,12 +122,12 @@ class App extends Component {
 								history={history}
 							/>
 						</Route>
-
+{/* 
 						<ProtectedRoute
-							path="/hello"
+							path="/"
 							loggedIn={this.state.isLoggedIn}
 							component={Hello}
-						/>
+						/> */}
 
 						<ProtectedRoute
 							path="/admin/requests"
@@ -150,6 +154,11 @@ class App extends Component {
 							path="/mycustody"
 							loggedIn={this.state.isLoggedIn}
 							component={MyCustody}
+						/>
+						<ProtectedRoute
+							path="/newrequest"
+							loggedIn={this.state.isLoggedIn}
+							component={NewReq}
 						/>
 					</Switch>
 				</BrowserRouter>

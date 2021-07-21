@@ -98,7 +98,7 @@ export default class ViceManager extends Component {
                             </Link>
                           </div>
                           <div onclick="location.href=''" className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                          <Link to="">
+                          <Link to="/newrequest">
                             <div style={{textAlign: 'center'}} className="each-icon box-1">
                               <div className="icon-wrap">
                                 <i className="fas fa-check-double" />

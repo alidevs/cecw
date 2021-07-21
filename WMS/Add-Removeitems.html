@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="images/IAU_logo_1.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/IAU_logo_1.png">
+  <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
   <title>إضافة او حذف</title>
 
 
@@ -23,9 +24,9 @@
       /* Firefox */
     }
 
-    ::selection {
+    /* ::selection {
       background: #212129;
-    }
+    } */
 
     .search-wrapper {
       position: absolute;
@@ -209,8 +210,161 @@
             <img src="images/logo.png" alt="">
           </div>
           <div class="addrevpaheader">
-            <p><input class="normalBtn" type="button" value="Add / Remove" onclick="">إضافة او حذف الودائع</p>
+            <p>
+              <a href="#popup1">
+                <input class="normalBtn" type="button" value="Add New Item" onclick=""
+                  style="position: absolute ; right: 76%;">
+              </a>
+              إضافة او حذف الودائع
+
+            </p>
           </div>
+          <div id="popup1" class="overlay">
+            <div class="popup">
+              <h2>Add New Item Page</h2>
+              <a class="close" href="">&times;</a>
+              <div class="content">
+                <br>
+
+                <div class="FildsPopup">
+                  <p>New Item Name:</p>
+                  <input class="inputpopup" type="text" name="ItemeNameAdd" value="">
+
+                  <p>Quantity:</p>
+                  <input class="inputpopup" type="text" name="QuantityAdd" value="">
+
+
+                  <p>Catagory:</p>
+                  <select class="inputpopup" name="CatagoryAdd" id="">
+                    <option selected></option>
+                    <option value="">Electronic Devices</option>
+                    <option value="">Office Supplies</option>
+                  </select>
+                  <button class="normalBtn" type="submit" value="Add New Item" onclick="">Add New Item</button>
+                  <!-- <input class="normalBtn" type="submit" value="Add New Item" onclick=""> -->
+                </div>
+                <br>
+              </div>
+            </div>
+          </div>
+          <style>
+            .FildsPopup {
+
+              display: flex;
+              flex-direction: column;
+              flex-wrap: wrap;
+              align-content: center;
+            }
+
+            .fa-pencil-alt:before {
+              padding-right: 15px;
+            }
+
+            input[type=text],
+            textarea {
+              height: 25px;
+              width: 60%;
+              margin-top: 4px;
+              margin-bottom: 12px;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              resize: vertical;
+              display: block;
+              /* text-align: right; */
+              font-family: inherit;
+              /* direction: rtl; */
+            }
+
+
+            select {
+              /* direction: rtl; */
+              font-family: Hacen tunisia;
+              font-size: 15px;
+              line-height: 1.5;
+              color: #000000;
+              text-align: right;
+              display: block;
+              width: 60%;
+              background: #ffffff;
+              height: 25px;
+              border-radius: 4px;
+            }
+
+            .overlay {
+              position: fixed;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              background: rgba(0, 0, 0, 0.7);
+              transition: opacity 500ms;
+              visibility: hidden;
+              opacity: 0;
+            }
+
+            .overlay:target {
+              visibility: visible;
+              opacity: 1;
+            }
+
+            .popup {
+              margin: 18rem auto;
+              padding: 20px;
+              background: #F3EFE3;
+              border-radius: 5px;
+              width: 30%;
+              position: relative;
+              transition: all 5s ease-in-out;
+            }
+
+            .popup h2 {
+              margin-top: 0;
+              color: #333;
+              font-family: Tahoma, Arial, sans-serif;
+            }
+
+            .popup .close {
+              position: absolute;
+              top: -6px;
+              right: 7px;
+              transition: all 200ms;
+              font-size: 30px;
+              font-weight: bold;
+              text-decoration: none;
+              color: #333;
+            }
+
+            .popup .close:hover {
+              color: #06D85F;
+            }
+
+            .popup .content {
+              max-height: 30%;
+              overflow: auto;
+              /* position: absolute; */
+              top: 25%;
+              left: 25%;
+              /* width: 40%; */
+              /* height: auto; */
+              padding: 16px;
+              border: 3px solid #999;
+              border-radius: 20px;
+              background-color: #F3EFE3;
+              font-family: Hacen tunisia, sans-serif;
+              font-size: 15px;
+            }
+
+            @media screen and (max-width: 700px) {
+              .box {
+                width: 70%;
+              }
+
+              .popup {
+                width: 70%;
+              }
+            }
+          </style>
+          </style>
           <form class="">
             <div class="search-wrapper">
               <div class="input-holder">
@@ -243,34 +397,56 @@
 
             <table class="table_select">
               <tr>
+
                 <th>ID</th>
                 <th>Item</th>
                 <th>Catagory</th>
                 <th>Quantity</th>
+                <th>Actions</th>
               </tr>
               <tr>
                 <td>0058</td>
                 <td>HP Laptop</td>
                 <td>Electronic Devices</td>
                 <td>30</td>
+                <td>
+                  <a href="#popup1"><button class="fas fa-pencil-alt" title="Edit the Item Name, Quantity or Catagory "
+                      name="" type="button"></button></a>
+                  <a><button class="fas fa-times" title="press to delete this Item" name="" type="button"></button></a>
+                </td>
               </tr>
               <tr>
                 <td>0059</td>
                 <td>Penclls</td>
                 <td>Office Supplies</td>
                 <td>20</td>
+                <td>
+                  <a href="#popup1"><button class="fas fa-pencil-alt" title="Edit the Item Name, Quantity or Catagory "
+                      name="" type="button"></button></a>
+                  <a><button class="fas fa-times" title="press to delete this Item" name="" type="button"></button></a>
+                </td>
               </tr>
               <tr>
                 <td>0060</td>
                 <td>Pens</td>
                 <td>Office Supplies</td>
                 <td>120</td>
+                <td>
+                  <a href="#popup1"><button class="fas fa-pencil-alt" title="Edit the Item Name, Quantity or Catagory "
+                      name="" type="button"></button></a>
+                  <a><button class="fas fa-times" title="press to delete this Item" name="" type="button"></button></a>
+                </td>
               </tr>
               <tr>
                 <td>0060</td>
                 <td>Pc Monitors</td>
                 <td>Electronic Devices</td>
                 <td>10</td>
+                <td>
+                  <a href="#popup1"><button class="fas fa-pencil-alt" title="Edit the Item Name, Quantity or Catagory "
+                      name="" type="button"></button></a>
+                  <a><button class="fas fa-times" title="press to delete this Item" name="" type="button"></button></a>
+                </td>
               </tr>
             </table>
 

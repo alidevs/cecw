@@ -10,10 +10,7 @@ const router = new express.Router()
 // GET /item/list
 // - Get a list of all items in inventory (Manager & Vice Manager only)
 router.get('/item/list', auth, async (req, res) => {
-	if (req.user.role === 'Employee') {
-		return res.status(401).send({ error: "Employees cannot add items to the item" })
-	}
-
+	
 	try {
 		const items = await Item.find({  })
 		res.send(items)
