@@ -19,7 +19,7 @@ export default class MyCustody extends Component {
 		const user = JSON.parse(localStorage.getItem('user'))
         
 
-		axios.get(`http://localhost:3000/users/${user._id}/trace`, {
+		axios.get(`http://localhost:3000/users/${user._id}/custody`, {
 			headers: {
 				Authorization: `Bearer ${token}`
 			}

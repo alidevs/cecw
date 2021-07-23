@@ -22,10 +22,10 @@ export default class Table extends Component {
 						<tbody>
 							{this.props.requests.map((request, index) => (
 								<tr>
-									<td>{request.record.description}</td>
-									<td>{request.record.category}</td>
-									<td>{request.record.quantity}</td>
-									<td>{request.record._id}</td>
+									<td>{request.name}</td>
+									<td>{request.category}</td>
+									<td>{request.count}</td>
+									<td>{request._id}</td>
 									
 								</tr>
 							))}

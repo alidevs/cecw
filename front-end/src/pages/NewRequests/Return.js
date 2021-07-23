@@ -10,7 +10,7 @@ export default class Request extends Component {
 			category: '',
 			quantity: '',
 			itemId: '',
-			type: 'Request',
+			type: 'Return',
 			count: ''
 		
 		}
@@ -69,25 +69,25 @@ export default class Request extends Component {
 
 	areFieldsFilled() {
 		const { category, itemId,  quantity, count } = this.state
-		return category.length > 0  && quantity.length > 0 && itemId.length > 0 && count > 0 && count >= quantity
+		return category.length > 0  && quantity.length > 0 && itemId.length > 0 //&& count > 0 //&& count >= quantity
 	}
 
 	render() {
-		let filterCat = this.props.items.filter((e) => {
+		// let filterCat = this.props.ReturnItem.filter((e) => {
 			
-			return e.category.includes(this.state.category) //&& e.count > 0
-		})
-		let countItem
-		if(this.state.count === 0){
-			 countItem =  <span style = {{color: "red"}}>غير متوفر حاليا</span>
+		// 	return e.category.toLowerCase().includes(this.state.category.toLowerCase()) //&& e.count > 0
+		// })
+		// let countItem
+		// if(this.state.count === 0){
+		// 	 countItem =  <span style = {{color: "red"}}>غير متوفر حاليا</span>
 			
-		}else if(this.state.count > 0){
-			countItem =  <span>العدد المتوفر : {this.state.count}</span>
-		}
+		// }else if(this.state.count > 0){
+		// 	countItem =  <span>العدد المتوفر : {this.state.count}</span>
+		// }
 
 		return (
 			<div className="returnItem">
-				<div className="title">Request</div>
+				<div className="title">Return</div>
 				<div className="content">
 					<form onSubmit={this.handleSubmit}>
 						<div className="user-details">
@@ -124,9 +124,10 @@ export default class Request extends Component {
 								required
 								>
 									<option value="-" disabled>-</option>
-									
-									{filterCat.map((items, index) => (
-										<option key={index} value={items._id}>{items.name}</option>
+									{console.log(this.props.items)}
+									{console.log("this.props.ReturnItem")}
+									{this.props.items.map((item, index) => (
+										<option key={index} value={item._id}>{item.name}</option>
 									))}
 								</select>
 							</div>
@@ -141,13 +142,13 @@ export default class Request extends Component {
 								required
 								/>
 							</div>
-							<div>{countItem}</div>
+							{/* <div>{countItem}</div> */}
 
 						</div>
 						<div className="button">
 							<input
 							type="submit"
-							value="Request"
+							value="Return"
 							disabled={!this.areFieldsFilled()}
 							/>
 						</div>
