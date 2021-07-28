@@ -11,12 +11,12 @@ export default class Table extends Component {
 				<table>
 					<thead>
 						<tr>
-							<td>Item</td>
-							<td>Category</td>
-							<td>Quantity</td>
-							<td>Transaction Type</td>
-							<td>Date & Time</td>
-							<td>Request Source</td>
+						<td> عنصر </ td>
+						<td> الفئة </td>
+						<td> الكمية </ td>
+						<td> نوع المعاملة </ td>
+						<td> التاريخ والوقت </ td>
+						<td> الطالب </ td> 
 						</tr>
 					</thead>
 

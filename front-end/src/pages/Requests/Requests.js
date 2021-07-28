@@ -60,10 +60,8 @@ export default class Requests extends Component {
 	render() {
 		return (
 			<div>
-				<div className="logo">
-					<link rel="stylesheet" href={`${process.env.PUBLIC_URL}/stylesheets/custody_styleSheet.css`} />
-					<img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="" />
-				</div>
+				<link rel="stylesheet" href={`${process.env.PUBLIC_URL}/stylesheets/custody_styleSheet.css`} />
+				<link rel="stylesheet" href={`${process.env.PUBLIC_URL}/stylesheets/styles.css`} />
 				<section className="container">
 					<div className="title"><span> طلبات الموظفين </span></div>
 					<Table requests={this.state.requests} handleRequests={this.handleChange} checkedItems={this.state.checkedItems} />

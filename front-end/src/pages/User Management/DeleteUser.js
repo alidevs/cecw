@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export default class DeleteUser extends Component {
 
@@ -25,32 +26,38 @@ export default class DeleteUser extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 
-		const token = localStorage.getItem('token')
+		if (window.confirm('Are you sure you wish to delete this user?')) {
+			const token = localStorage.getItem('token')
 
-		axios({
-			method: 'DELETE',
-			url: `http://localhost:3000/users/${this.state.user}`,
-			headers: {
-				Authorization: `Bearer ${token}`
-			},
-		})
-		.then((response) => {
-			console.log('Response: ', response)
-			this.props.reloadData()
-		})
+			axios({
+				method: 'DELETE',
+				url: `http://localhost:3000/users/${this.state.user}`,
+				headers: {
+					Authorization: `Bearer ${token}`
+				},
+			})
+			.then((response) => {
+				toast.success(`تم حذف مستخدم بإسم '${response.data.name}'`)
+				this.props.reloadData()
+			})
+			.catch((error) => {
+				toast.error('فشل حذف المستخدم')
+				console.error(error)
+			})
+		}
 	}
 
 	render() {
 		return (
 			<div className="returnItem">
-				<div className="title">Delete User</div>
+				<div className="title">حذف مستخدم</div>
 				<div className="content">
 					<form action="#">
 					<div className="user-details">
 
 
 						<div className="input-box">
-						<label htmlFor="_id"><span className="details"> Name:</span></label>
+						<label htmlFor="_id"><span className="details">الاسم:</span></label>
 
 						<select 
 						className="input-box" 
@@ -72,7 +79,7 @@ export default class DeleteUser extends Component {
 
 					</div>
 					<div className="button">
-						<input type="submit" value="Delete" onClick={this.handleSubmit} disabled={this.state.user.length === 0} />
+						<input type="submit" value="حذف" onClick={this.handleSubmit} disabled={this.state.user.length === 0} />
 					</div>
 					</form>
 				</div>

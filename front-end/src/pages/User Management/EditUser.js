@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export default class EditUser extends Component {
 
@@ -54,8 +55,12 @@ export default class EditUser extends Component {
 			data: cleanedObject
 		})
 		.then((response) => {
-			console.log('Response: ', response)
+			toast.success(`تم تعديل مستخدم بإسم '${response.data.name}'`)
 			this.props.reloadData()
+		})
+		.catch((error) => {
+			toast.error('فشل تعديل المستخدم')
+			console.error(error)
 		})
 	}
 
@@ -67,12 +72,12 @@ export default class EditUser extends Component {
 	render() {
 		return (
 			<div className="returnItem">
-				<div className="title">Edit User</div>
+				<div className="title">تعديل مستخدم</div>
 				<div className="content">
 					<form onSubmit={this.handleSubmit}>
 						<div className="user-details">
 							<div className="input-box">
-								<label htmlFor="sort"><span className="details">User:</span></label>
+								<label htmlFor="sort"><span className="details">المستخدم</span></label>
 
 								<select 
 								className="input-box" 
@@ -89,29 +94,29 @@ export default class EditUser extends Component {
 								</select>
 							</div>
 							<div className="input-box">
-								<span className="details">Name</span>
+								<span className="details">الاسم</span>
 								<input 
 								type="name"
 								name="name"
 								value={this.state.name}
 								onChange={this.handleFieldsChange}
-								placeholder="Enter the name"
+								placeholder="ادخل الاسم الجديد"
 								required
 								/>
 							</div>
 							<div className="input-box">
-								<span className="details">Email</span>
+								<span className="details">البريد الالكتروني</span>
 								<input 
 								type="email"
 								name="email"
 								value={this.state.email}
 								onChange={this.handleFieldsChange}
-								placeholder="Enter the Email"
+								placeholder="ادخل البريد الالكتروني الجديد"
 								required
 								/>
 							</div>
 							<div className="input-box">
-								<label htmlFor="sort"><span className="details"> Position:</span></label>
+								<label htmlFor="sort"><span className="details">الوظيفة</span></label>
 
 								<select 
 								className="input-box" 
@@ -121,18 +126,18 @@ export default class EditUser extends Component {
 								id="Position"
 								required
 								>
-									<option value="Manager">Manager</option>
-									<option value="Vice Manager">Vice Manager</option>
-									<option value="Employee">Employee</option>
+									<option value="Manager">مدير</option>
+									<option value="Vice Manager">نائب مدير</option>
+									<option value="Employee">موظف</option>
 								</select>
 							</div>
 							<div className="input-box">
-								<span className="details">Password</span>
+								<span className="details">كلمة السر</span>
 								<input 
 								type="password" 
 								name="password"
 								onChange={this.handleFieldsChange}
-								placeholder="Enter the new password" 
+								placeholder="ادخل كلمة السر الجديدة" 
 								/>
 							</div>
 
@@ -140,7 +145,7 @@ export default class EditUser extends Component {
 						<div className="button">
 							<input
 							type="submit"
-							value="Update"
+							value="تحديث"
 							disabled={!this.areFieldsFilled()}
 							/>
 						</div>

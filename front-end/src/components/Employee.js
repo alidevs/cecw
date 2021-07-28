@@ -9,7 +9,6 @@ export default class Employee extends Component {
 			<meta charSet="UTF-8" />
 			<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<link rel="stylesheet" href="./styles/style.css" />
             <link rel="icon" type="image/png" sizes="32x32" href="images/IAU_logo_1.png" />
             <link rel="icon" type="image/png" sizes="16x16" href="images/IAU_logo_1.png" />
             <meta name="msapplication-TileColor" content="#da532c" />
@@ -17,8 +16,7 @@ export default class Employee extends Component {
 			<link rel="stylesheet" href={`${process.env.PUBLIC_URL}/stylesheets/styles.css`} />
 	
 			<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet" />
-            <link rel="stylesheet" type="text/css" href="styles/style.css " />
-            <link rel="stylesheet" type="text/css" href="styles/custom-responsive-style.css" />
+			<link rel="stylesheet" href={`${process.env.PUBLIC_URL}/stylesheets/custom-responsive-style.css`} />
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
             <link rel="stylesheet" media="screen" href="http://fontlibrary.org/face/hacen-tunisia" type="text/css" />
             <link href="http://fonts.cdnfonts.com/css/hacen-tunisia-bd" rel="stylesheet" />
@@ -42,7 +40,7 @@ export default class Employee extends Component {
 					  <div className="container">
 					  
 						<div className="row"  style={{marginLeft: '20rem'}}>
-						  <div onclick="location.href=''" className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+						  <div onClick={() => console.log('Div clicked')} className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
 						  <Link to="/admin/requests">
 							<div style={{textAlign: 'center'}} className="each-icon box-4">
 							  <div className="icon-wrap">
@@ -59,7 +57,7 @@ export default class Employee extends Component {
 							</div>
 							</Link>
 						  </div>
-						  <div onclick="location.href=''" className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+						  <div onClick={() => console.log('Div clicked')} className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
 						  <Link to="/mycustody">
 
 							<div style={{textAlign: 'center'}} className="each-icon box-2">
@@ -78,7 +76,7 @@ export default class Employee extends Component {
 							</Link>
 
 						  </div>
-						  <div onclick="location.href=''" className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+						  <div onClick={() => console.log('Div clicked')} className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
 						  <Link to="/history">
 
 							<div style={{textAlign: 'center'}} className="each-icon box-2">
@@ -97,7 +95,7 @@ export default class Employee extends Component {
 							</Link>
 
 						  </div>
-						  <div onclick="location.href=''" className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+						  <div onClick={() => console.log('Div clicked')} className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
 						  <Link to="/newrequest">
 
 							<div style={{textAlign: 'center'}} className="each-icon box-1">
