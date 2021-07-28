@@ -27,7 +27,7 @@ export default class NavBar extends Component {
 					<div className="center">
 					<form method="" action="">
 						<a href="/#"><button className="nav-link" name="HomePageH" type="submit">
-							<img src="images/IAU_logo_1.png" alt="logo" width="45" />
+							<img src="images/IAU_logo_2.png" alt="logo" width="45" />
 						</button></a>
 					</form>
 					</div>
