@@ -25,7 +25,7 @@ export default class Footer extends Component {
 						Authorization: `Bearer ${token}`
 					},
 					data: {
-						status: event.target.value === 'Accept' ? 'Accepted' : 'Denied'
+						status: event.target.name === 'Accept' ? 'Accepted' : 'Denied'
 					}
 				}))
 			}
@@ -48,8 +48,8 @@ export default class Footer extends Component {
 		return (
 			<form>
 				<div className="buttonGrid">
-					<input type="submit" className="button" value="Accept" onClick={this.handleRequests} />
-					<input type="submit" className="deny" value="Deny" onClick={this.handleRequests} />
+					<input type="submit" className="button" value="قبول" name="Accept" onClick={this.handleRequests} />
+					<input type="submit" className="deny" value="رفض" name="Deny" onClick={this.handleRequests} />
 				</div>
 			</form>
 		)

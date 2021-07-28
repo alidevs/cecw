@@ -9,26 +9,24 @@ export default class Table extends Component {
 					<table>
 						<thead>
 							<tr>
-                            <td>Item</td>
-                        <td>Category</td>
-                        <td>Quantity</td>
-                        <td>Transaction Type</td>
-                        <td>Date & Time</td>
-                        
+								<td>Item</td>
+								<td>Transaction Type</td>
+								<td>Quantity</td>
+								<td>Status</td>
+								<td>Date & Time</td>
 							</tr>
 						</thead>
 
 						<tbody>
 							{this.props.requests.map((request, index) => (
-								<tr>
-									<td>{request._id}</td>
-									<td>{request.itemId}</td>
-									<td>{request.quantity}</td>
+								<tr key={index}>
+									<td>{request.itemId.name}</td>
 									<td>{request.type}</td>
+									<td>{request.quantity}</td>
+									<td>{request.status}</td>
 									<td>{request.time}</td>
 								</tr>
 							))}
-						
 						</tbody>
 					</table>
 				</div>

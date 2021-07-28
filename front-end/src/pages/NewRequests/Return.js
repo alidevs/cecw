@@ -68,7 +68,7 @@ export default class Request extends Component {
 	}
 
 	areFieldsFilled() {
-		const { category, itemId,  quantity, count } = this.state
+		const { category, itemId,  quantity } = this.state
 		return category.length > 0  && quantity.length > 0 && itemId.length > 0 //&& count > 0 //&& count >= quantity
 	}
 

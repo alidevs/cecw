@@ -30,6 +30,7 @@ export default class Requests extends Component {
 			}
 		})
 		.then((response) => {
+			console.log(response.data)
 			switch (response.status) {
 				case 200:
 					this.setState({ requests: response.data })

@@ -9,7 +9,6 @@ export default class Requests extends Component {
 
 		this.state = {
 			requests: [],
-			errors: ''
 		}
 
 	}
@@ -47,9 +46,6 @@ export default class Requests extends Component {
 	}
 
 	render() {
-		if (this.state.errors !== '') {
-			return <div>{this.state.errors}</div>
-		}
 		return (
 			<div>
 				<Header />

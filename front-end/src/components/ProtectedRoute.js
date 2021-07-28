@@ -3,7 +3,7 @@ import { Redirect, Route } from 'react-router'
 const ProtectedRoute = ({component: Comp, loggedIn, path, ...rest}) => {
 	return (
 		<Route
-		exact path={path}
+		path={path}
 		{...rest}
 		render={(props) => {
 				return loggedIn ? (

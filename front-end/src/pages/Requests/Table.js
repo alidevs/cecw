@@ -23,12 +23,12 @@ export default class Table extends Component {
 					<tbody>
 						{this.props.requests.map((request, index) => (
 							<tr key={index} >
-								<td>{request.itemId}</td>
+								<td>{request.itemId.name}</td>
 								<td>{request.category}</td>
 								<td>{request.quantity}</td>
 								<td>{request.type}</td>
 								<td>{moment(request.time).format("D MMM YYYY, h:mm")}</td>
-								<td>{request.requestee}</td>
+								<td>{request.requestee.name}</td>
 								<td>
 									<Checkbox name={request._id} checked={this.props.checkedItems.get(request._id)} onChange={e => this.props.handleRequests(e)} />
 								</td>

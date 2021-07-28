@@ -162,7 +162,8 @@ router.get('/item/request/list', auth, async (req, res) => {
 	}
 
 	try {
-		const requests = await Request.find({ status: 'Pending' })
+		const requests = await Request.find({ status: 'Pending' }).populate('requestee').populate('itemId')
+		
 		res.send(requests)
 	} catch (e) {
 		res.status(500).send(e)
@@ -170,12 +171,8 @@ router.get('/item/request/list', auth, async (req, res) => {
 })
 
 router.get('/item/History', auth, async (req, res) => {
-	
-
 	try {
-		
-		const requests = await Request.find({ requestee: req.user._id })
-		
+		const requests = await Request.find({ requestee: req.user._id }).populate('itemId')
 		res.send(requests)
 	} catch (e) {
 		res.status(500).send(e)

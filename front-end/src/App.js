@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 // eslint-disable-next-line
 import { BrowserRouter, Link, Redirect, Route, Switch, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
+// eslint-disable-next-line no-unused-vars
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import Login from './pages/Login/Login'
 import Requests from './pages/Requests/Requests'
@@ -10,8 +13,9 @@ import History from './pages/History/History'
 import UserManagement from './pages/User Management/UserManagement'
 import MyCustody from './pages/myCustody/MyCustody'
 import NewReq from './pages/NewRequests/NewRequests'
-import Home from './components/Home'
+import Inventory from './pages/Inventory Management/Inventory'
 
+import Home from './components/Home'
 import ProtectedRoute from './components/ProtectedRoute'
 import NavBar from './components/NavBar'
 
@@ -33,18 +37,6 @@ class App extends Component {
 
 		this.handleLogin = this.handleLogin.bind(this)
 		this.resetState = this.resetState.bind(this)
-	}
-
-	resetState() {
-		localStorage.clear()
-
-		this.setState({
-			isLoggedIn: '',
-			user: '',
-			token: '',
-		})
-
-		console.log('State has been reset & localStorage has been cleared.')
 	}
 	
 	componentDidMount() {
@@ -71,11 +63,34 @@ class App extends Component {
 		localStorage.setItem('token', data.token)
 	}
 
+	resetState() {
+		localStorage.clear()
+
+		this.setState({
+			isLoggedIn: '',
+			user: '',
+			token: '',
+		})
+	}
+
+
+
 	render() {
 		const { history } = this.props
 		
 		return (
 			<div>
+				<ToastContainer
+					position="top-right"
+					autoClose={3000}
+					hideProgressBar={false}
+					newestOnTop
+					closeOnClick
+					rtl
+					pauseOnFocusLoss={false}
+					draggable
+					pauseOnHover={false}
+				/>
 				<BrowserRouter>
 				<div className="links">
 					<Link to="/login">
@@ -102,12 +117,16 @@ class App extends Component {
 					<Link to="/newrequest">
 						new request
 					</Link>
+					&nbsp;
+					<Link to="/inventory">
+						Inventory
+					</Link>
 				</div>
-				<NavBar
-					username={this.state.user.name}
-					resetState={this.resetState}
-					history={history}
-				/>
+					{this.state.isLoggedIn === 'LOGGED_IN' && <NavBar
+						username={this.state.user.name}
+						resetState={this.resetState}
+						history={history}
+					/>}
 					<Switch>
 						<ProtectedRoute
 							exact path="/"
@@ -122,12 +141,6 @@ class App extends Component {
 								history={history}
 							/>
 						</Route>
-{/* 
-						<ProtectedRoute
-							path="/"
-							loggedIn={this.state.isLoggedIn}
-							component={Hello}
-						/> */}
 
 						<ProtectedRoute
 							path="/admin/requests"
@@ -159,6 +172,12 @@ class App extends Component {
 							path="/newrequest"
 							loggedIn={this.state.isLoggedIn}
 							component={NewReq}
+						/>
+						<ProtectedRoute
+							path="/inventory"
+							loggedIn={this.state.isLoggedIn}
+							history={history}
+							component={Inventory}
 						/>
 					</Switch>
 				</BrowserRouter>
