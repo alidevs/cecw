@@ -9,11 +9,11 @@ export default class Table extends Component {
 					<table>
 						<thead>
 							<tr>
-								<td>Item</td>
-								<td>Transaction Type</td>
-								<td>Quantity</td>
-								<td>Status</td>
-								<td>Date & Time</td>
+								<td>العنصر</td>
+								<td>نوع المعاملة</td>
+								<td>العدد</td>
+								<td>الحالة</td>
+								<td>التاريخ والوقت</td>
 							</tr>
 						</thead>
 

@@ -37,8 +37,8 @@ export default class NavBar extends Component {
 						</li>
 						<li className="nav-item pl-1">
 						<form method="" action="">
-							<a href="/#"><button className="nav-link" name="" type="submit" onClick={this.navigateToHomepage}> الصفحة الرئيسية <i
-								className="fa fa-home fa-fw mr-1"></i></button></a>
+							<a href="/#"><button className="nav-link" name="" type="submit" onClick={this.navigateToHomepage}> <i
+								className="fa fa-home fa-fw mr-1"></i>  الصفحة الرئيسية </button></a>
 						</form>
 						</li>
 					</ul>
@@ -47,7 +47,7 @@ export default class NavBar extends Component {
 					<ul className="navbar-nav ml-auto">
 						<li className="dropdown">
 						{/* <a className="nav-link" href="javascript:void(0);">مرحباً.. {this.props.username}<i className=" fa fa-user fa-fw mr-1"></i></a> */}
-						{this.props.username ? <a className="nav-link" href="/#">مرحباً {this.props.username}<i className=" fa fa-user fa-fw mr-1"></i></a> : <div></div>}
+						{this.props.username ? <a className="nav-link" href="/#"> <i className=" fa fa-user fa-fw mr-1"></i> مرحباً {this.props.username}</a> : <div></div>}
 						<div className="dropdown-content">
 							<form className="" method="" action="">
 								<a className="nav-link" href="/#" onClick={this.handleLogout}>تسجيل الخروج <i className="fas fa-sign-out-alt"></i></a>
