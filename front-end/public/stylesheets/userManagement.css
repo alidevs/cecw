@@ -3,10 +3,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins',sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Hacen tunisia, "Helvetica Neue", Hacen tunisia, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
 }
 .body{
+  direction: rtl;
   display: flex;
+  height: 115vh;
   justify-content: center;
   padding: 10px;
   background: #F3EFE3;

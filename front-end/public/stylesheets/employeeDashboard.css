@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap');
 
 
-html {
+/* html {
     font-family: 'Cairo', sans-serif;
     font-size: 10px;
-  }
-  
+}
+   */
 
 body {background-color: #F3EFE3;}
 
@@ -24,6 +24,7 @@ span{
     margin: 15px;
 }
 .table{
+    direction: rtl;
     position: relative;
     display: grid;
     min-height: 200px;
