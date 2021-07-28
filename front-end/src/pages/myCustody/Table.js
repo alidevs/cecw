@@ -10,10 +10,10 @@ export default class Table extends Component {
 					<table>
 						<thead>
 							<tr>
-                            <td>Item</td>
-                        <td>Category</td>
-                        <td>Quantity</td>
-                        <td>Item ID</td>
+                            <td>عنصر</td>
+                        <td>الفئة</td>
+                        <td>الكمية</td>
+                        <td>رقم العنصر</td>
                         
                         
 							</tr>
