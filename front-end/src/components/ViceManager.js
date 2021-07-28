@@ -17,7 +17,7 @@ export default class ViceManager extends Component {
             <link rel="stylesheet" href={`${process.env.PUBLIC_URL}/stylesheets/styles.css`} />
 
             {/* favicons */}
-            <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet" />
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
             <link rel="stylesheet" href={`${process.env.PUBLIC_URL}/stylesheets/custom-responsive-style.css`} />
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
             <link rel="stylesheet" media="screen" href="http://fontlibrary.org/face/hacen-tunisia" type="text/css" />

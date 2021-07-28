@@ -62,7 +62,7 @@ export default class Requests extends Component {
 			<div>
 				<link rel="stylesheet" href={`${process.env.PUBLIC_URL}/stylesheets/custody_styleSheet.css`} />
 				<link rel="stylesheet" href={`${process.env.PUBLIC_URL}/stylesheets/styles.css`} />
-				<section className="container">
+				<section className="containerreq">
 					<div className="title"><span> طلبات الموظفين </span></div>
 					<Table requests={this.state.requests} handleRequests={this.handleChange} checkedItems={this.state.checkedItems} />
 					<Footer checkedItems={this.state.checkedItems} history={this.props.history} reloadData={this.downloadData} />
