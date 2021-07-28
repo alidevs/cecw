@@ -16,7 +16,7 @@ export default class Table extends Component {
 						<td> الكمية </ td>
 						<td> نوع المعاملة </ td>
 						<td> التاريخ والوقت </ td>
-						<td> الطالب </ td> 
+						<td> مقدم الطلب </ td> 
 						</tr>
 					</thead>
 

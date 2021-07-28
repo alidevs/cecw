@@ -33,8 +33,8 @@ export default class Admin extends Component {
                   <img src="images/logo.png" alt="" />
                 </div>
                 <div className="headerHP">
-                  <h5>Warehouse Management System Dashboard</h5>
-                  <h6>Welcome Manager Page</h6>
+                <h5>نـظـام إدارة الـعُـهـد والمــخــزون</h5>
+                  <h6>أهلاً بك في صفحة المدير</h6>
                 </div>
                 <section id="Gain">
                   <div className="container">

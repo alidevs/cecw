@@ -36,9 +36,9 @@ export default class ViceManager extends Component {
                       <img src="images/logo.png" alt="" />
                     </div>
                     <div className="headerHP">
-                      <h5>Warehouse Management System Dashboard</h5>
+                    <h5>نـظـام إدارة الـعُـهـد والمــخــزون</h5>
                       {/* Replace Vice Manager with <<Username>>(BackEnd)*/}
-                      <h6>Welcome Vice Manager Page</h6>
+                      <h6>أهلاً بك في صفحة نائب المدير</h6>
                     </div>
                     <section id="Gain">
                       <div className="container">
@@ -49,13 +49,13 @@ export default class ViceManager extends Component {
                             <div style={{textAlign: 'center'}} className="each-icon box-4">
                               <div className="icon-wrap">
                                 <i className="fa fa-list-ul" />
-                                <h3 style={{color: '#F3EFE3'}}>التحقق من عٌهد الموظفين</h3>
+                                <h3 style={{color: '#F3EFE3'}}>التحقق من عُهد الموظفين</h3>
                               </div>
                               <div className="icon-text">
-                              <h3>التحقق من عٌهد الموظفين</h3>
-                            <p>قبول او رفض طلبات العٌهد</p>
+                              <h3>التحقق من عُهد الموظفين</h3>
+                            <p>قبول او رفض طلبات العُهد</p>
                                 <div className="cta">
-                                <a title="اضغط هنا للذهاب للتحقق من عٌهد الموظفين" href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
+                                <a title="اضغط هنا للذهاب للتحقق من عُهد الموظفين" href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
                                 </div>
                               </div>
                             </div>
@@ -90,7 +90,7 @@ export default class ViceManager extends Component {
                             <h3>سجلات العُهد</h3>
                             <p>لعرض جميع طلبات العهد</p>
                             <div className="cta">
-                              <a title="اضغط هنا للذهاب لسجلات العٌهد" href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
+                              <a title="اضغط هنا للذهاب لسجلات العُهد" href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
                             </div>
                               </div>
                             </div>
@@ -101,10 +101,10 @@ export default class ViceManager extends Component {
                             <div style={{textAlign: 'center'}} className="each-icon box-1">
                               <div className="icon-wrap">
                                 <i className="fas fa-check-double" />
-                                <h3 style={{color: '#F3EFE3'}}>طلب او إرجاع عٌهدة</h3>
+                                <h3 style={{color: '#F3EFE3'}}>طلب او إرجاع عُهدة</h3>
                               </div>
                               <div className="icon-text">
-                                <h3>طلب او إرجاع عٌهدة</h3>
+                                <h3>طلب او إرجاع عُهدة</h3>
                                 <p>تمكنك من تقديم طلب او إرجاع العهد الخاصة بك</p>
                                 <div className="cta">
                                   <a title="إضغظ هنا للإنتقال لصفحة الطلب او الإسترجاع" href="javascript:void(0);"><i className="fa fa-arrow-right" aria-hidden="true" /></a>
@@ -122,9 +122,9 @@ export default class ViceManager extends Component {
                           </div>
                           <div className="icon-text">
                             <h3>العُهد الخاصة بي</h3>
-                            <p>تمكنك من عرض العٌهد الخاصة بك</p>
+                            <p>تمكنك من عرض العُهد الخاصة بك</p>
                             <div className="cta">
-                              <a title="اضغط هنا للذهاب للعٌهد الخاصة بك" href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
+                              <a title="اضغط هنا للذهاب للعُهد الخاصة بك" href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
                             </div>
                               </div>
                             </div>
