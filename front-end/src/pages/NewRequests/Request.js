@@ -87,12 +87,12 @@ export default class Request extends Component {
 
 		return (
 			<div className="returnItem">
-				<div className="title">Request</div>
+				<div className="title">طلب عُهدة</div>
 				<div className="content">
 					<form onSubmit={this.handleSubmit}>
 						<div className="user-details">
 							<div className="input-box">
-								<label htmlFor="sort"><span className="details">Category:</span></label>
+								<label htmlFor="sort"><span className="details">الفئة:</span></label>
 
 								<select 
 								className="input-box" 
@@ -112,7 +112,7 @@ export default class Request extends Component {
 							
 							
 							<div className="input-box">
-								<label htmlFor="sort"><span className="details"> Item:</span></label>
+								<label htmlFor="sort"><span className="details"> العنصر:</span></label>
 
 								<select 
 								className="input-box" 
@@ -131,7 +131,7 @@ export default class Request extends Component {
 								</select>
 							</div>
 							<div className="input-box">
-								<span className="details">ََQuantity</span>
+								<span className="details">العدد:</span>
 								<input 
 								type="number"
 								name="quantity"

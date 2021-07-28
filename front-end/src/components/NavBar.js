@@ -50,7 +50,7 @@ export default class NavBar extends Component {
 						{this.props.username ? <a className="nav-link" href="/#"> <i className=" fa fa-user fa-fw mr-1"></i> مرحباً {this.props.username}</a> : <div></div>}
 						<div className="dropdown-content">
 							<form className="" method="" action="">
-								<a className="nav-link" href="/#" onClick={this.handleLogout}>تسجيل الخروج <i className="fas fa-sign-out-alt"></i></a>
+								<a className="nav-link" href="/#" onClick={this.handleLogout}> <i className="fas fa-sign-out-alt"></i> تسجيل الخروج </a>
 							</form>
 						</div>
 						</li>

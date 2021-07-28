@@ -79,14 +79,12 @@ export default class NewRequests extends Component {
 		return (
 			<div className="body">
 				<link rel="stylesheet" href={`${process.env.PUBLIC_URL}/stylesheets/userManagement.css`} />
-				
 
 				<div className="leftSide">
 					<Request items={this.state.items} reloadData={this.downloadData} />
 				</div>
 				<div className= "rightSide"></div>
 				<Return items={this.state.ReturnItem} reloadData={this.getReturnData} />
-
 			</div>
 		)
 	}
