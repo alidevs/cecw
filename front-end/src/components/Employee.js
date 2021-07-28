@@ -45,14 +45,14 @@ export default class Employee extends Component {
 							<div style={{textAlign: 'center'}} className="each-icon box-4">
 							  <div className="icon-wrap">
 								<i className="fa fa-list-ul" />
-								<h3 style={{color: '#F3EFE3'}}>Check My Custody Requests</h3>
-							  </div>
-							  <div className="icon-text">
-								<h3>Check My Custody Requests...des</h3>
-								<p>Check My Custody Requests...des</p>
-								<div className="cta">
-								  <a title="Click to go to..." href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
-								</div>
+								<h3 style={{color: '#F3EFE3'}}>التحقق من عٌهد الموظفين</h3>
+                              </div>
+                              <div className="icon-text">
+                              <h3>التحقق من عٌهد الموظفين</h3>
+                            <p>التحقق من قبول او رفض طلبات العٌهد</p>
+                                <div className="cta">
+                                <a title="اضغط هنا للذهاب للتحقق من عٌهد الموظفين" href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
+                                </div>
 							  </div>
 							</div>
 							</Link>
@@ -63,14 +63,14 @@ export default class Employee extends Component {
 							<div style={{textAlign: 'center'}} className="each-icon box-2">
 							  <div className="icon-wrap">
 								<i className="fas fa-cubes" />
-								<h3 style={{color: '#F3EFE3'}}>My Custody Items</h3>
-							  </div>
-							  <div className="icon-text">
-								<h3>My Custody Items...des</h3>
-								<p>My Custody Items...des</p>
-								<div className="cta">
-								  <a title="Click to go to..." href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
-								</div>
+								<h3 style={{color: '#F3EFE3'}}>العُهد الخاصة بي</h3>
+                          </div>
+                          <div className="icon-text">
+                            <h3>العُهد الخاصة بي</h3>
+                            <p>تمكنك من عرض العٌهد الخاصة بك</p>
+                            <div className="cta">
+                              <a title="اضغط هنا للذهاب للعٌهد الخاصة بك" href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
+                            </div>
 							  </div>
 							</div>
 							</Link>
@@ -82,14 +82,14 @@ export default class Employee extends Component {
 							<div style={{textAlign: 'center'}} className="each-icon box-2">
 							  <div className="icon-wrap">
 								<i className="fa fa-history" />
-								<h3 style={{color: '#F3EFE3'}}>Custody History</h3>
-							  </div>
-							  <div className="icon-text">
-								<h3>Custody History...des</h3>
-								<p>Custody History...des</p>
-								<div className="cta">
-								  <a title="Click to go to..." href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
-								</div>
+								<h3 style={{color: '#F3EFE3'}}>سجلات العُهد</h3>
+                          </div>
+                          <div className="icon-text">
+                            <h3>سجلات العُهد</h3>
+                            <p>لعرض جميع طلبات العهد</p>
+                            <div className="cta">
+                              <a title="اضغط هنا للذهاب لسجلات العٌهد" href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
+                            </div>
 							  </div>
 							</div>
 							</Link>
@@ -101,14 +101,14 @@ export default class Employee extends Component {
 							<div style={{textAlign: 'center'}} className="each-icon box-1">
 							  <div className="icon-wrap">
 								<i className="fas fa-check-double" />
-								<h3 style={{color: '#F3EFE3'}}>Request/Return Custody Items</h3>
-							  </div>
-							  <div className="icon-text">
-								<h3>Request/Return Custody Items...des</h3>
-								<p>Request/Return Custody Items...des</p>
-								<div className="cta">
-								  <a title="Click to go to..." href="/#"><i className="fa fa-arrow-right" aria-hidden="true" />&nbsp;</a>
-								</div>
+								<h3 style={{color: '#F3EFE3'}}>طلب او إرجاع عٌهدة</h3>
+                              </div>
+                              <div className="icon-text">
+                                <h3>طلب او إرجاع عٌهدة</h3>
+                                <p>تمكنك من تقديم طلب او إرجاع العهد الخاصة بك</p>
+                                <div className="cta">
+                                  <a title="إضغظ هنا للإنتقال لصفحة الطلب او الإسترجاع" href="javascript:void(0);"><i className="fa fa-arrow-right" aria-hidden="true" /></a>
+                                </div>
 							  </div>
 							</div>
 							</Link>
