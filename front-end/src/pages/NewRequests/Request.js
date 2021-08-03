@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export default class Request extends Component {
 
@@ -64,6 +65,7 @@ export default class Request extends Component {
 		})
 		.then((response) => {
 			console.table(response)
+			toast.success('تم تقديم الطلب')
 		})
 	}
 
@@ -77,13 +79,6 @@ export default class Request extends Component {
 			
 			return e.category.includes(this.state.category) //&& e.count > 0
 		})
-		let countItem
-		if(this.state.count === 0){
-			 countItem =  <span style = {{color: "red"}}>غير متوفر حاليا</span>
-			
-		}else if(this.state.count > 0){
-			countItem =  <span>العدد المتوفر : {this.state.count}</span>
-		}
 
 		return (
 			<div className="returnItem">
@@ -141,14 +136,12 @@ export default class Request extends Component {
 								required
 								/>
 							</div>
-							<div>{countItem}</div>
 
 						</div>
 						<div className="button">
 							<input
 							type="submit"
 							value="Request"
-							disabled={!this.areFieldsFilled()}
 							/>
 						</div>
 					</form>

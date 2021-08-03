@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export default class Request extends Component {
 
@@ -64,6 +65,7 @@ export default class Request extends Component {
 		})
 		.then((response) => {
 			console.table(response)
+			toast.success('تم تقديم الطلب')
 		})
 	}
 
@@ -151,7 +153,6 @@ export default class Request extends Component {
 							<input
 							type="submit"
 							value="Return"
-							disabled={!this.areFieldsFilled()}
 							/>
 						</div>
 					</form>

@@ -58,7 +58,7 @@ export default class Admin extends Component {
 						</Link>
                       </div>
                       <div onClick={() => console.log('Div clicked')} className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-					  <Link to="">
+					  <Link to="/inventory">
 
                         <div style={{textAlign: 'center'}} className="each-icon box-3">
                           <div className="icon-wrap">

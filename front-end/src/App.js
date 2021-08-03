@@ -92,7 +92,7 @@ class App extends Component {
 					pauseOnHover={false}
 				/>
 				<BrowserRouter>
-				<div className="links">
+				{/* <div className="links">
 					<Link to="/login">
 						Login
 					</Link>&nbsp;
@@ -121,7 +121,7 @@ class App extends Component {
 					<Link to="/inventory">
 						Inventory
 					</Link>
-				</div>
+				</div> */}
 					{this.state.isLoggedIn === 'LOGGED_IN' && <NavBar
 						username={this.state.user.name}
 						resetState={this.resetState}

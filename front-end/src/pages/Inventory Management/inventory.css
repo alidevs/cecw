@@ -12,7 +12,7 @@
   .search-wrapper {
 	position: absolute;
 	transform: translate(-47%, -99%);
-	top: 22%;
+	top: 16%;
 	left: 82%;
   }
 
@@ -20,7 +20,7 @@
   .search-wrapper.active {}
 
   .search-wrapper .input-holder {
-	height: 48px;
+	height: 70px;
 	width: 70px;
 	overflow: hidden;
 	background: rgba(255, 255, 255, 0);

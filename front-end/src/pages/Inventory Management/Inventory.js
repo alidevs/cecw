@@ -227,7 +227,7 @@ export default class Inventory extends Component {
 
 											{this.state.selectedItem._id === item._id ?
 											<td>
-												<select className="inputpopup" defaultValue={item.name} name="category">
+												<select className="inputpopup" defaultValue={item.name} onChange={this.handleChange} name="category">
 													<option value="Electronic Devices">Electronic Devices</option>
 													<option value="Office Supplies">Office Supplies</option>
 													<option value="Management Tools">Management Tools</option>
@@ -236,11 +236,11 @@ export default class Inventory extends Component {
 											<td>{item.category}</td>}
 											
 											{this.state.selectedItem._id === item._id ?
-											<td><input placeholder={item.description} name="description"></input></td> :
+											<td><input placeholder={item.description} onChange={this.handleChange} name="description"></input></td> :
 											<td>{item.description}</td>}
 
 											{this.state.selectedItem._id === item._id ?
-											<td><input placeholder={item.count} name="count"></input></td> :
+											<td><input placeholder={item.count} onChange={this.handleChange} name="count"></input></td> :
 											<td>{item.count}</td>}
 
 											<td>
